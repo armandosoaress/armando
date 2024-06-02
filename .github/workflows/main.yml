@@ -1,8 +1,10 @@
+name: 🚀 Deploy website on push
+
 on:
   push:
     branches:
       - main
-name: 🚀 Deploy website on push
+
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -10,6 +12,7 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
+
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:

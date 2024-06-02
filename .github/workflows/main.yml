@@ -14,5 +14,5 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ftp.armandosoares.com.br
-          username: arman008
+          username: armandoftp
           password: Arma312FJN$

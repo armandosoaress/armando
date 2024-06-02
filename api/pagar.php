@@ -14,7 +14,7 @@ $sql = "SELECT repetir FROM movimentacoes WHERE id = $id";
 $result = mysqli_query($conexao, $sql);
 $repetir = mysqli_fetch_assoc($result)['repetir'];
 if ($repetir == '1') {
-    $sql = "INSERT INTO movimentacoes_repetir (id_movimentacao, status,data_pagamento) VALUES ($id, '$status', '$dtPagamento')";
+    $sql = "INSERT INTO movimentacoesrepetir (id_movimentacao, status,data_pagamento) VALUES ($id, '$status', '$dtPagamento')";
     mysqli_query($conexao, $sql);
 }
 $sql = "UPDATE movimentacoes set status = '$status' where id = $id";

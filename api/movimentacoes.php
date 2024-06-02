@@ -33,12 +33,16 @@ if (mysqli_num_rows($resultado) > 0) {
     $movimentacoes = array();
     while ($row = mysqli_fetch_assoc($resultado)) {
         if ($row['repetir'] == 1) {
-            $sql = "SELECT status FROM movimentacoes_repetir WHERE id_movimentacao = " . $row['id'] . " AND MONTH(data_pagamento) = $mes  AND YEAR(data_pagamento) = $ano order by id desc limit 1";
-            $result = mysqli_query($conexao, $sql);
-            if (mysqli_num_rows($result) > 0) {
-                $row['status'] = mysqli_fetch_assoc($result)['status'];
-            }else {
-                $row['status'] = 0;
+            try {
+                $sql = "SELECT status FROM movimentacoesrepetir WHERE id_movimentacao = " . $row['id'] . " AND MONTH(data_pagamento) = $mes  AND YEAR(data_pagamento) = $ano order by id desc limit 1";
+                $result = mysqli_query($conexao, $sql);
+                if (mysqli_num_rows($result) > 0) {
+                    $row['status'] = mysqli_fetch_assoc($result)['status'];
+                } else {
+                    $row['status'] = 0;
+                }
+            } catch (\Throwable $th) {
+                //throw $th;
             }
         }
         $movimentacoes[] = $row;

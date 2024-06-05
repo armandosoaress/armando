@@ -110,9 +110,7 @@
                 fetch('api/resumo.php')
                   .then(response => response.json())
                   .then(data => {
-                    document.getElementById('dividas').innerText = data.dividas
-                    document.getElementById('empreendidos').innerText = data.empreendidos
-                    document.getElementById('investidos').innerText = data.investidos
+                    listresumo();
                   })
               })
               .catch(error => {
@@ -125,16 +123,16 @@
           }
         }
 
-
-
-        fetch('api/resumo.php')
-          .then(response => response.json())
-          .then(data => {
-            document.getElementById('dividas').innerText = data.dividas
-            document.getElementById('empreendidos').innerText = data.empreendidos
-            document.getElementById('investidos').innerText = data.investidos
-          })
-
+        function listresumo() {
+          fetch('api/resumo.php')
+            .then(response => response.json())
+            .then(data => {
+              document.getElementById('dividas').innerText = data.dividas
+              document.getElementById('empreendidos').innerText = data.empreendidos
+              document.getElementById('investidos').innerText = data.investidos
+            })
+        }
+        listresumo();
 
         $(document).ready(function () {
           $('#valorresumo').inputmask({

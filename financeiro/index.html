@@ -109,9 +109,9 @@
         fetch('api/resumo.php')
           .then(response => response.json())
           .then(data => {
-            document.getElementById('dividas').innerText = data.dividas
-            document.getElementById('empreendidos').innerText = data.empreendidos
-            document.getElementById('investidos').innerText = data.investidos
+            document.getElementById('dividas').innerText = dividas
+            document.getElementById('empreendidos').innerText = empreendidos
+            document.getElementById('investidos').innerText = investidos
           })
 
       </script>

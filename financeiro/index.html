@@ -106,15 +106,14 @@
           })
         }
 
-        function buscarResumo() {
-          fetch('api/resumo.php')
-            .then(response => response.json())
-            .then(data => {
-              document.getElementById('dividas').innerText = data.dividas
-              document.getElementById('empreendidos').innerText = data.empreendidos
-              document.getElementById('investidos').innerText = data.investidos
-            })
-        }
+        fetch('api/resumo.php')
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('dividas').innerText = data.dividas
+            document.getElementById('empreendidos').innerText = data.empreendidos
+            document.getElementById('investidos').innerText = data.investidos
+          })
+
       </script>
 
       <div class="thirdRow pagina organizador">

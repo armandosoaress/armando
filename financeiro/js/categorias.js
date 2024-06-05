@@ -23,8 +23,6 @@ function listacategorias() {
                   <tr>
                     <th></th>
                     <th></th>
-                    <th></th>
-                    <th></th>
                     <th>Total</th>
                     <th id="totalfixos"></th>
                   </tr>

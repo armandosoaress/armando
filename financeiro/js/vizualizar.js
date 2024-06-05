@@ -23,7 +23,6 @@ function movimentacoes() {
                         movimentacao.data_vencimento = '';
                     }
                     
-
                     const divmovimentacao = `
                         <tr>
                             <td>

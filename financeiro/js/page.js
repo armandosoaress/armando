@@ -22,9 +22,9 @@
 
 
 document.querySelectorAll('.pagina').forEach(element => {
-    element.style.display = 'flex';
+    element.style.display = 'none';
 });
-document.querySelector('.organizador').style.display = 'none';
 document.querySelector('.investimentos').style.display = 'none';
 document.querySelector('.dividas').style.display = 'none';
 document.querySelector('.empreendidos').style.display = 'none';
+document.querySelector('.organizador').style.display = 'flex';

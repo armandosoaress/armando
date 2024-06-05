@@ -2,27 +2,35 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
-header('Content-Type: text/html; charset=utf-8');
+header('Content-Type: application/json; charset=utf-8');
+
 include_once 'conexao.php';
-$dados = json_decode(file_get_contents('php://input'), true);
-$sqlinvestidos = "SELECT * FROM `investidos`";
+
+// Consulta o último valor investido
+$sqlinvestidos = "SELECT * FROM `investidos` ORDER BY id DESC LIMIT 1";
 $resultinvestidos = mysqli_query($conexao, $sqlinvestidos);
 $valorinvestido = 0;
-while ($row = mysqli_fetch_assoc($resultinvestidos)) {
-    $valorinvestido += $row['valor'];
+if ($row = mysqli_fetch_assoc($resultinvestidos)) {
+    $valorinvestido = $row['valor'];
 }
-$sqlempreendidos = "SELECT * FROM `empreendidos`";
+
+// Consulta o último valor empreendido
+$sqlempreendidos = "SELECT * FROM `empreendidos` ORDER BY id DESC LIMIT 1";
 $resultempreendidos = mysqli_query($conexao, $sqlempreendidos);
 $valorempreendido = 0;
-while ($row = mysqli_fetch_assoc($resultempreendidos)) {
-    $valorempreendido += $row['valor'];
+if ($row = mysqli_fetch_assoc($resultempreendidos)) {
+    $valorempreendido = $row['valor'];
 }
-$sqldividas = "SELECT * FROM `dividas`";
+
+// Consulta o último valor devido
+$sqldividas = "SELECT * FROM `dividas` ORDER BY id DESC LIMIT 1";
 $resultdividas = mysqli_query($conexao, $sqldividas);
 $valordevido = 0;
-while ($row = mysqli_fetch_assoc($resultdividas)) {
-    $valordevido += $row['valor'];
+if ($row = mysqli_fetch_assoc($resultdividas)) {
+    $valordevido = $row['valor'];
 }
+
+// Retorna os valores como JSON
 echo json_encode(array(
     'investidos' => $valorinvestido,
     'empreendidos' => $valorempreendido,

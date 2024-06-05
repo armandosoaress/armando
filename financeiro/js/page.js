@@ -19,3 +19,9 @@
 
 
 // document.querySelector('.organizador').style.display = 'none';
+
+
+document.querySelectorAll('.pagina').forEach(element => {
+    element.style.display = 'flex';
+  });
+  document.querySelector('.organizador').style.display = 'none';

@@ -36,39 +36,22 @@
   </div>
 
   <script>
+
+    function changeMenuColor(page) {
+      const menus = ['.menu_init', '.menu_organizador', '.menu_investimentos', '.menu_dividas', '.menu_empreendidos'];
+      menus.forEach(menu => {
+        document.querySelector(menu).style.backgroundColor = 'transparent';
+      });
+      document.querySelector(`.menu_${page}`).style.backgroundColor = 'white';
+    }
     function showPage(page) {
-      if (page == 'organizador') {
-        document.querySelector('.menu_organizador').style.backgroundColor = 'white';
-        document.querySelector('.menu_init').style.backgroundColor = 'transparent';
-      }
-      if (page == 'init') {
-        document.querySelector('.menu_init').style.backgroundColor = 'white';
-        document.querySelector('.menu_organizador').style.backgroundColor = 'transparent';
-      }
-
-      if (page == 'investimentos') {
-        document.querySelector('.menu_investimentos').style.backgroundColor = 'white';
-        document.querySelector('.menu_dividas').style.backgroundColor = 'transparent';
-        document.querySelector('.menu_empreendidos').style.backgroundColor = 'transparent';
-      }
-
-      if (page == 'dividas') {
-        document.querySelector('.menu_dividas').style.backgroundColor = 'white';
-        document.querySelector('.menu_investimentos').style.backgroundColor = 'transparent';
-        document.querySelector('.menu_empreendidos').style.backgroundColor = 'transparent';
-      }
+      changeMenuColor(page);
 
       document.querySelectorAll('.pagina').forEach(element => {
         element.style.display = 'none';
       });
       document.querySelector('.' + page).style.display = 'flex';
     }
-
-
-    document.querySelectorAll('.pagina').forEach(element => {
-      element.style.display = 'flex';
-    });
-    document.querySelector('.organizador').style.display = 'none';
   </script>
 
 
@@ -222,6 +205,7 @@
           </div>
           <p></p>
           <div class="row" id="categorias"></div>
+          <div class="dividas" id="dividas"></div>
         </div>
       </div>
     </div>

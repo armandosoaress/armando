@@ -106,13 +106,19 @@
           })
         }
 
+
+
         fetch('api/resumo.php')
           .then(response => response.json())
           .then(data => {
-            document.getElementById('dividas').innerText = data.dividas
-            document.getElementById('empreendidos').innerText = data.empreendidos
-            document.getElementById('investidos').innerText = data.investidos
+            document.getElementById('dividas').innerText = convertermoeda(data.dividas)
+            document.getElementById('empreendidos').innerText = convertermoeda(data.empreendidos)
+            document.getElementById('investidos').innerText = convertermoeda(data.investidos)
           })
+
+        function convertermoeda(valor) {
+          return valor.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+        }
 
       </script>
 

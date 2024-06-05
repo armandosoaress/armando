@@ -115,7 +115,6 @@ nav .user {
 .firstRow,
 .secondRow {
     display: flex;
-    flex-direction: column;
 }
 
 .cardOne,

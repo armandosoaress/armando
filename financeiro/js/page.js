@@ -21,8 +21,4 @@
 // document.querySelector('.organizador').style.display = 'none';
 
 
-document.querySelectorAll('.categorias').style.display = 'none!important';
-document.querySelector('.investimentos').style.display = 'none!important';
-document.querySelector('.dividas').style.display = 'none!important';
-document.querySelector('.empreendidos').style.display = 'none!important';
-document.querySelector('.organizador').style.display = 'flex!important';
+

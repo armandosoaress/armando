@@ -184,3 +184,16 @@ nav .user {
     border-radius: 7px;
     margin-right: 15px;
 }
+
+/* Esconde todos os elementos, exceto .organizador */
+.categorias,
+.investimentos,
+.dividas,
+.empreendidos {
+  display: none !important;
+}
+
+/* Mostra o .organizador */
+.organizador {
+  display: flex !important;
+}

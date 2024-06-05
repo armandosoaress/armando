@@ -1,30 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 /* Declaration de variables en CSS */
-:root
-{
+:root {
     --color-white: white;
     --color-black: black;
     --color-grey: #CECECE;
     --color-primary: #7385F2;
 }
 
-*
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body
-{
+body {
     font-family: 'Roboto', sans-serif;
 }
 
 /* CSS of Side Barre */
 
-.sideBarre
-{
+.sideBarre {
     width: 260px;
     height: 120vh;
     background-color: #e6fdff;
@@ -32,8 +28,7 @@ body
     position: fixed;
 }
 
-.sideBarre__logo
-{
+.sideBarre__logo {
     display: flex;
     height: 70px;
     align-items: center;
@@ -41,8 +36,7 @@ body
     border-bottom: 1px solid var(--color-grey);
 }
 
-.sideBarre__cercle
-{
+.sideBarre__cercle {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -50,24 +44,22 @@ body
     margin-right: 8px;
 }
 
-.sideBarre__logo h1
-{
+.sideBarre__logo h1 {
     color: var(--color-primary);
 }
 
-.sideBarre__menu ul li
-{
+.sideBarre__menu ul li {
     list-style: none;
     padding: 18px;
     transition: all .3s
 }
-.active
-{
+
+.active {
     border-right: 4px solid var(--color-primary);
     background-color: rgb(255, 255, 255);
-}   
-.sideBarre__menu ul li:hover
-{
+}
+
+.sideBarre__menu ul li:hover {
     border-right: 4px solid var(--color-primary);
     background-color: rgb(255, 255, 255);
     cursor: pointer;
@@ -75,40 +67,35 @@ body
 
 .menu_init {
     background-color: white;
-  }
+}
 
 /* se clicar no menu, ele fica ativo */
 
-.sideBarre__menu ul li a
-{
+.sideBarre__menu ul li a {
     text-decoration: none;
     color: var(--color-black);
 }
 
-.sideBarre__menu ul li:hover a
-{
+.sideBarre__menu ul li:hover a {
     color: var(--color-primary);
 }
 
 /* CSS of Main Content */
 
-.mainContent
-{
+.mainContent {
     min-height: 100px;
     margin-left: 260px;
 }
 
 /* CSS of NavBar */
 
-.mainContent nav
-{
+.mainContent nav {
     height: 70px;
     background-color: #e6fdff;
     padding: 0 30px;
 }
 
-nav .user
-{
+nav .user {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -119,20 +106,21 @@ nav .user
 
 /* CSS of Box Content */
 
-.boxContent
-{
+.boxContent {
     height: 100%;
 }
 
 /* CSS of First Row */
 
-.firstRow, .secondRow
-{
+.firstRow,
+.secondRow {
     display: flex;
 }
 
-.cardOne, .cardTwo, .cardThree, .cardFour
-{
+.cardOne,
+.cardTwo,
+.cardThree,
+.cardFour {
     flex: 1;
     height: 180px;
     border-radius: 7px;
@@ -140,32 +128,27 @@ nav .user
     position: relative;
 }
 
-.cardOne
-{
-    background: linear-gradient(90deg,#9862F9, #8AAAFE);
+.cardOne {
+    background: linear-gradient(90deg, #9862F9, #8AAAFE);
     cursor: pointer;
 }
 
-.cardTwo
-{
-    background: linear-gradient(90deg,#FDB4B0, #FF749C);
+.cardTwo {
+    background: linear-gradient(90deg, #FDB4B0, #FF749C);
     cursor: pointer;
 }
 
-.cardThree
-{
-    background: linear-gradient(90deg,#FFC88B, #FF914E);
+.cardThree {
+    background: linear-gradient(90deg, #FFC88B, #FF914E);
     cursor: pointer;
 }
 
-.cardFour
-{
-    background: linear-gradient(90deg,#106DFE, #729FFE);
+.cardFour {
+    background: linear-gradient(90deg, #106DFE, #729FFE);
     cursor: pointer;
 }
 
-.description
-{
+.description {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -174,20 +157,17 @@ nav .user
     color: var(--color-white);
 }
 
-.description h3
-{
+.description h3 {
     font-size: 43px;
 }
 
 /* CSS of Second Row */
 
-.secondRow
-{
+.secondRow {
     margin-top: 50px;
 }
 
-.cardChart
-{
+.cardChart {
     flex: 1;
     margin-right: 15px;
     background-color: var(--color-white);
@@ -198,8 +178,7 @@ nav .user
 
 /* CSS of Third Row */
 
-.thirdRow
-{
+.thirdRow {
     box-shadow: 0px 0px 30px -18px rgba(0, 0, 0, 0.55);
     border-radius: 7px;
     margin-right: 15px;

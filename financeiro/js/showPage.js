@@ -1,5 +1,4 @@
 function showPage(page) {
-
     if (page == 'organizador') {
         document.querySelector('.menu_organizador').style.backgroundColor = 'white';
         document.querySelector('.menu_init').style.backgroundColor = 'transparent';

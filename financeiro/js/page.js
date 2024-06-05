@@ -21,8 +21,8 @@
 // document.querySelector('.organizador').style.display = 'none';
 
 
-document.querySelectorAll('.categorias').style.display = 'none';
-document.querySelector('.investimentos').style.display = 'none';
-document.querySelector('.dividas').style.display = 'none';
-document.querySelector('.empreendidos').style.display = 'none';
-document.querySelector('.organizador').style.display = 'flex';
+document.querySelectorAll('.categorias').style.display = 'none!important';
+document.querySelector('.investimentos').style.display = 'none!important';
+document.querySelector('.dividas').style.display = 'none!important';
+document.querySelector('.empreendidos').style.display = 'none!important';
+document.querySelector('.organizador').style.display = 'flex!important';

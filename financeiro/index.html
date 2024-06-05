@@ -76,6 +76,7 @@
           const { value: valor } = await Swal.fire({
             title: 'Digite o valor',
             html: '<input id="swal-input1" class="swal2-input" type="number">',
+            confirmButtonText: 'Atualizar',
             focusConfirm: false,
             preConfirm: () => {
               return document.getElementById("swal-input1").value;

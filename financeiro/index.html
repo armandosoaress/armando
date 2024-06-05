@@ -33,32 +33,69 @@
   <div class="mainContent">
     <nav>
       <div class="user">
-        <div class="user__cercle"></div>
-        <p>Olá, <span id="nome">Armando</span></p>
+
       </div>
     </nav>
 
     <div class="boxContent">
       <div class="firstRow pagina init">
-        <div class="cardTwo">
+        <div class="cardTwo" onclick="atualizarresumo('dividas')">
           <div class="description">
             <p>Dividas</p>
             <h3 id="dividas"></h3>
           </div>
         </div>
-        <div class="cardThree">
+        <div class="cardThree" onclick="atualizarresumo('recebidos')">
           <div class="description">
             <p>Empreendidos</p>
             <h3 id="empreendidos"></h3>
           </div>
         </div>
-        <div class="cardOne">
+        <div class="cardOne" onclick="atualizarresumo('investidos')">
           <div class="description">
-            <p>Ivestidos</p>
+            <p>Investidos</p>
             <h3 id="investidos"></h3>
           </div>
         </div>
       </div>
+
+      <script>
+        function atualizarresumo(tipo) {
+          Swal.fire({
+            title: 'Digite o valor',
+            input: 'text',
+            inputAttributes: {
+              autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Atualizar',
+            showLoaderOnConfirm: true,
+            preConfirm: (valor) => {
+              return fetch(`./atualizar.php?tipo=${tipo}&valor=${valor}`)
+                .then(response => {
+                  if (!response.ok) {
+                    throw new Error(response.statusText)
+                  }
+                  return response.json()
+                })
+                .catch(error => {
+                  Swal.showValidationMessage(
+                    `Request failed: ${error}`
+                  )
+                })
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: 'Atualizado!',
+                icon: 'success'
+              })
+              atualizarresumo(tipo)
+            }
+          })
+        }
+      </script>
 
       <div class="thirdRow pagina organizador">
         <div class="init" id="init">

@@ -67,6 +67,11 @@
           });
         }
 
+     
+        document.getElementById('swal2-input').addEventListener('input', function() {
+          this.value = formatarMoeda(this.value.replace(/\D/g, ''));
+        });
+
         function atualizarresumo(tipo) {
           Swal.fire({
             title: 'Digite o valor',

@@ -70,8 +70,18 @@
             showCancelButton: true,
             confirmButtonText: 'Atualizar',
             showLoaderOnConfirm: true,
+            cancelButtonText: 'Cancelar',
             preConfirm: (valor) => {
-              return fetch(`./atualizar.php?tipo=${tipo}&valor=${valor}`)
+              return fetch('api/resumo.php', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  tipo: tipo,
+                  valor: valor
+                })
+              })
                 .then(response => {
                   if (!response.ok) {
                     throw new Error(response.statusText)

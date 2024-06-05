@@ -7,6 +7,7 @@ include_once 'conexao.php';
 $dados = json_decode(file_get_contents('php://input'), true);
 
 $valor = $dados['valor'];
+$valor = str_replace(',', '.', $valor);
 $created_at = date('Y-m-d');
 $tipo = $dados['tipo'];
 $sql = "INSERT INTO " . $tipo . " (valor, created_at) VALUES ('$valor', '$created_at')";

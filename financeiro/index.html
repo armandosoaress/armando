@@ -102,10 +102,17 @@
               })
               .then(() => {
                 Swal.fire({
-                  title: 'Atualizado!',
+                  title: 'Sucesso!',
+                  text: 'Resumo atualizado com sucesso!',
                   icon: 'success'
                 });
-                atualizarresumo(tipo);
+                fetch('api/resumo.php')
+                  .then(response => response.json())
+                  .then(data => {
+                    document.getElementById('dividas').innerText = data.dividas
+                    document.getElementById('empreendidos').innerText = data.empreendidos
+                    document.getElementById('investidos').innerText = data.investidos
+                  })
               })
               .catch(error => {
                 Swal.fire({

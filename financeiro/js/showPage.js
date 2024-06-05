@@ -16,4 +16,6 @@ function showPage(page) {
 document.querySelectorAll('.pagina').forEach(element => {
     element.style.display = 'none';
 });
+
+
 document.querySelector('.organizador').style.display = 'flex';

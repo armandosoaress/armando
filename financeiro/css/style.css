@@ -143,21 +143,25 @@ nav .user
 .cardOne
 {
     background: linear-gradient(90deg,#9862F9, #8AAAFE);
+    cursor: pointer;
 }
 
 .cardTwo
 {
     background: linear-gradient(90deg,#FDB4B0, #FF749C);
+    cursor: pointer;
 }
 
 .cardThree
 {
     background: linear-gradient(90deg,#FFC88B, #FF914E);
+    cursor: pointer;
 }
 
 .cardFour
 {
     background: linear-gradient(90deg,#106DFE, #729FFE);
+    cursor: pointer;
 }
 
 .description

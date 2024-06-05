@@ -21,4 +21,3 @@
 // document.querySelector('.organizador').style.display = 'none';
 
 
-

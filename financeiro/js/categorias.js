@@ -21,9 +21,12 @@ function listacategorias() {
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th></th>
                     <th>Total</th>
                     <th id="totalfixos"></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                   </tr>
                 </tfoot>
                 <tfoot>

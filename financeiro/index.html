@@ -11,8 +11,6 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/jquery.inputmask.min.js"></script>
 </head>
 
 <body>
@@ -62,21 +60,12 @@
       </div>
 
       <script>
-        function formatarMoeda(valor) {
-          return valor.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-          });
-        }
-
-        document.getElementById('swal2-input').addEventListener('input', function () {
-          this.value = formatarMoeda(this.value.replace(/\D/g, ''));
-        });
+ 
 
         async function atualizarresumo(tipo) {
           const { value: valor } = await Swal.fire({
             title: 'Digite o valor',
-            html: '<input id="valorresumo" class="swal2-input" placeholder="R$ 0,00">',
+            html: '<input id="valorresumo" class="swal2-input" placeholder="R$ 0,00" onkeyup="this.value = this.value.replace(/[^0-9,]/g, \'\').replace(/,/g, \'.\')">',
             confirmButtonText: 'Atualizar',
             focusConfirm: false,
             preConfirm: () => {
@@ -134,18 +123,7 @@
         }
         listresumo();
 
-        $(document).ready(function () {
-          $('#valorresumo').inputmask({
-            alias: 'numeric',
-            groupSeparator: ',',
-            autoGroup: true,
-            digits: 2,
-            digitsOptional: false,
-            prefix: 'R$ ',
-            placeholder: '0',
-            rightAlign: false
-          });
-        });
+      
 
 
       </script>

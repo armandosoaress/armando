@@ -123,6 +123,7 @@ nav .user {
 .dividas
 {
 flex-direction: column;
+padding: 16px;
 }
 
 .cardOne,

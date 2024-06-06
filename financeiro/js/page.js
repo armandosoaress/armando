@@ -16,9 +16,11 @@ function showPage(page) {
     document.querySelectorAll('.pagina').forEach(pagina => {
         pagina.style.display = 'none';
     });
+    // document.querySelector(`.${page}`).style.display = 'flex';
     document.querySelectorAll(`.${page}`).forEach(pagina => {
         pagina.style.display = 'flex';
     });
+    
 }
 
 document.querySelectorAll('.pagina').forEach(pagina => {

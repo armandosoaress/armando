@@ -7,7 +7,8 @@ $banco = "arman008_armando";
 // $servidor = "localhost";
 // $usuario = "root";
 // $senha = "";
-// $banco = "arman008_armando";
+// $banco = "testeaa";
+
 
 
 

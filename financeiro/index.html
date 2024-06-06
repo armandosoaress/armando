@@ -44,6 +44,10 @@
     }
     function showPage(page) {
       changeMenuColor(page);
+      document.querySelectorAll('.pagina').forEach(pagina => {
+        pagina.style.display = 'none';
+      });
+      document.querySelector(`.${page}`).style.display = 'flex';
     }
   </script>
 

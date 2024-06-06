@@ -14,8 +14,7 @@ function changeMenuColor(page) {
 function showPage(page) {
     changeMenuColor(page);
     document.querySelectorAll('.pagina').forEach(pagina => {
-        pagina.style.backgroundColor = 'red';
-
+        pagina.style.display = 'none';
     });
     document.querySelector(`.${page}`).style.display = 'flex';
 }

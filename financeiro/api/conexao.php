@@ -1,8 +1,15 @@
 <?php
+// $servidor = "localhost";
+// $usuario = "arman008_armando";
+// $senha = "Arma312FJN$";
+// $banco = "arman008_armando";
+
 $servidor = "localhost";
-$usuario = "arman008_armando";
-$senha = "Arma312FJN$";
-$banco = "arman008_armando";
+$usuario = "root";
+$senha = "";
+$banco = "testeaa";
+
+
 
 $conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
 if (!$conexao) {

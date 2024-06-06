@@ -2,8 +2,8 @@ function changeMenuColor(page) {
     const menus = [
         '.menu_init',
         '.menu_organizador',
-        // '.menu_investimentos',
-        // '.menu_dividas',
+        // '.menu_investimentos', 
+        // '.menu_dividas', 
         // '.menu_empreendidos'
     ];
     menus.forEach(menu => {
@@ -14,13 +14,10 @@ function changeMenuColor(page) {
 function showPage(page) {
     changeMenuColor(page);
     document.querySelectorAll('.pagina').forEach(pagina => {
-        pagina.style.display = 'none';
+        pagina.style.backgroundColor = 'red';
+
     });
-    // document.querySelector(`.${page}`).style.display = 'flex';
-    document.querySelectorAll(`.${page}`).forEach(pagina => {
-        pagina.style.display = 'flex';
-    });
-    
+    document.querySelector(`.${page}`).style.display = 'flex';
 }
 
 document.querySelectorAll('.pagina').forEach(pagina => {

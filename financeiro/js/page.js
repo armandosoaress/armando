@@ -1,23 +1,19 @@
-// function showPage(page) {
-//     if (page == 'organizador') {
-//         document.querySelector('.menu_organizador').style.backgroundColor = 'white';
-//         document.querySelector('.menu_init').style.backgroundColor = 'transparent';
-//     }
-//     if (page == 'init') {
-//         document.querySelector('.menu_init').style.backgroundColor = 'white';
-//         document.querySelector('.menu_organizador').style.backgroundColor = 'transparent';
-//     }
-
-//     document.querySelectorAll('.pagina').forEach(element => {
-//         element.style.display = 'none';
-//     });
-//     document.querySelector('.' + page).style.display = 'flex';
-// }
-// document.querySelectorAll('.pagina').forEach(element => {
-//     element.style.display = 'flex';
-// });
-
-
-// document.querySelector('.organizador').style.display = 'none';
-
-
+function changeMenuColor(page) {
+    const menus = ['.menu_init', '.menu_organizador', '.menu_investimentos', '.menu_dividas', '.menu_empreendidos'];
+    menus.forEach(menu => {
+        document.querySelector(menu).style.backgroundColor = 'transparent';
+    });
+    document.querySelector(`.menu_${page}`).style.backgroundColor = 'white';
+}
+function showPage(page) {
+    changeMenuColor(page);
+    document.querySelectorAll('.pagina').forEach(pagina => {
+        pagina.style.display = 'none';
+    });
+    document.querySelector(`.${page}`).style.display = 'flex';
+    if (page === 'organizador') {
+        document.querySelector('.categorias').style.display = 'flex';
+    } else {
+        document.querySelector('.categorias').style.display = 'none';
+    }
+}

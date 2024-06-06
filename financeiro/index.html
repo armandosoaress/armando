@@ -24,39 +24,16 @@
       <ul>
         <li class="menu_init" onclick="showPage('init')"><a href="javascript:void(0)">Início</a></li>
         <li class="menu_organizador" onclick="showPage('organizador')"><a href="javascript:void(0)">Finanças</a></li>
-        <li class="menu_investimentos" onclick="showPage('investimentos')"><a
+
+        <!-- <li class="menu_investimentos" onclick="showPage('investimentos')"><a
             href="javascript:void(0)">Investimentos</a></li>
         <li class="menu_dividas" onclick="showPage('dividas')"><a href="javascript:void(0)">Dividas</a></li>
-        <li class="menu_empreendidos" onclick="showPage('empreendidos')"><a href="javascript:void(0)">Empreendidos</a>
+        <li class="menu_empreendidos" onclick="showPage('empreendidos')"><a href="javascript:void(0)">Empreendidos</a> -->
+
         </li>
       </ul>
     </div>
   </div>
-
-  <script>
-
-    function changeMenuColor(page) {
-      const menus = ['.menu_init', '.menu_organizador', '.menu_investimentos', '.menu_dividas', '.menu_empreendidos'];
-      menus.forEach(menu => {
-        document.querySelector(menu).style.backgroundColor = 'transparent';
-      });
-      document.querySelector(`.menu_${page}`).style.backgroundColor = 'white';
-    }
-    function showPage(page) {
-      changeMenuColor(page);
-      document.querySelectorAll('.pagina').forEach(pagina => {
-        pagina.style.display = 'none';
-      });
-      document.querySelector(`.${page}`).style.display = 'flex';
-      if (page === 'organizador') {
-        document.querySelector('.categorias').style.display = 'flex';
-      } else {
-        document.querySelector('.categorias').style.display = 'none';
-      }
-    }
-  </script>
-
-
 
   <div class="mainContent">
     <nav>
@@ -86,83 +63,6 @@
           </div>
         </div>
       </div>
-
-      <script>
-
-        function moedaedit(obj) {
-          v_obj = obj
-          v_obj.value = v_obj.value.replace(/\D/g, "")
-          v_obj.value = v_obj.value.replace(/(\d{2})$/, ",$1")
-          v_obj.value = v_obj.value.replace(/(?=(\d{3})+(\D))\B/g, ".")
-
-        }
-
-
-        async function atualizarresumo(tipo) {
-          const { value: valor } = await Swal.fire({
-            title: 'Digite o valor',
-            html: '<input id="valorresumo" class="swal2-input" placeholder="R$ 0,00" onkeyup="moedaedit(this)">',
-            confirmButtonText: 'Atualizar',
-            focusConfirm: false,
-            preConfirm: () => {
-              return document.getElementById('valorresumo').value
-            }
-          });
-
-          if (valor) {
-            fetch('api/atualizaresumo.php', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                tipo: tipo,
-                valor: valor
-              })
-            })
-              .then(response => {
-                if (!response.ok) {
-                  throw new Error(response.statusText);
-                }
-                return response.json();
-              })
-              .then(() => {
-                Swal.fire({
-                  title: 'Sucesso!',
-                  text: 'Resumo atualizado com sucesso!',
-                  icon: 'success'
-                });
-                fetch('api/resumo.php')
-                  .then(response => response.json())
-                  .then(data => {
-                    listresumo();
-                  })
-              })
-              .catch(error => {
-                Swal.fire({
-                  title: 'Erro!',
-                  text: `Falha na solicitação: ${error}`,
-                  icon: 'error'
-                });
-              });
-          }
-        }
-
-        function listresumo() {
-          fetch('api/resumo.php')
-            .then(response => response.json())
-            .then(data => {
-              document.getElementById('dividas').innerText = data.dividas
-              document.getElementById('empreendidos').innerText = data.empreendidos
-              document.getElementById('investidos').innerText = data.investidos
-            })
-        }
-        listresumo();
-
-
-
-
-      </script>
 
       <div class="thirdRow pagina organizador">
         <div class="init" id="init">

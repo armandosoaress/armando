@@ -11,9 +11,4 @@ function showPage(page) {
         pagina.style.display = 'none';
     });
     document.querySelector(`.${page}`).style.display = 'flex';
-    if (page === 'organizador') {
-        document.querySelector('.categorias').style.display = 'flex';
-    } else {
-        document.querySelector('.categorias').style.display = 'none';
-    }
 }

@@ -1,13 +1,13 @@
 <?php
-// $servidor = "localhost";
-// $usuario = "arman008_armando";
-// $senha = "Arma312FJN$";
-// $banco = "arman008_armando";
-
 $servidor = "localhost";
-$usuario = "root";
-$senha = "";
-$banco = "testeaa";
+$usuario = "arman008_armando";
+$senha = "Arma312FJN$";
+$banco = "arman008_armando";
+
+// $servidor = "localhost";
+// $usuario = "root";
+// $senha = "";
+// $banco = "arman008_armando";
 
 
 

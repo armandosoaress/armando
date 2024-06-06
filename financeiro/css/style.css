@@ -126,6 +126,10 @@ flex-direction: column;
 padding: 16px;
 }
 
+#categorias{
+    padding-top: 20px;
+}
+
 .cardOne,
 .cardTwo,
 .cardThree,

@@ -120,13 +120,12 @@ nav .user {
 
 .empreendidos,
 .investimentos,
-.dividas
-{
-flex-direction: column;
-padding: 16px;
+.dividas {
+    flex-direction: column;
+    padding: 16px;
 }
 
-#categorias{
+#categorias {
     padding-top: 20px;
 }
 

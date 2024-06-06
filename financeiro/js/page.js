@@ -12,3 +12,8 @@ function showPage(page) {
     });
     document.querySelector(`.${page}`).style.display = 'flex';
 }
+
+document.querySelectorAll('.pagina').forEach(pagina => {
+    pagina.style.display = 'none';
+});
+document.querySelector('.organizador').style.display = 'flex';

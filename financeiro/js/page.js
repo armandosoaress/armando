@@ -1,5 +1,11 @@
 function changeMenuColor(page) {
-    const menus = ['.menu_init', '.menu_organizador', '.menu_investimentos', '.menu_dividas', '.menu_empreendidos'];
+    const menus = [
+        '.menu_init',
+        '.menu_organizador',
+        // '.menu_investimentos',
+        // '.menu_dividas',
+        // '.menu_empreendidos'
+    ];
     menus.forEach(menu => {
         document.querySelector(menu).style.backgroundColor = 'transparent';
     });

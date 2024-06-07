@@ -4,6 +4,8 @@ fetch('api/resumomes.php?ano=' + ano)
   .then(data => {
 
     const mes = new Date().getMonth() + 1;
+
+
     if (mes == 12) {
       const xValues = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
       var datamesa = {
@@ -56,7 +58,6 @@ fetch('api/resumomes.php?ano=' + ano)
         ]
       };
     }
-
     if (mes == 10) {
       const xValues = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro'];
       var datamesa = {
@@ -84,7 +85,6 @@ fetch('api/resumomes.php?ano=' + ano)
       };
 
     }
-
     if (mes == 9) {
       const xValues = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro'];
       var datamesa = {
@@ -113,7 +113,6 @@ fetch('api/resumomes.php?ano=' + ano)
       };
 
     }
-
     if (mes == 8) {
       const xValues = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto'];
       var datamesa = {
@@ -140,7 +139,6 @@ fetch('api/resumomes.php?ano=' + ano)
         ]
       };
     }
-
     if (mes == 7) {
       const xValues = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'];
       var datamesa = {
@@ -167,9 +165,6 @@ fetch('api/resumomes.php?ano=' + ano)
         ]
       };
     }
-
-
-
     if (mes == 6) {
       const xValues = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'];
       var datamesa = {
@@ -196,7 +191,6 @@ fetch('api/resumomes.php?ano=' + ano)
         ]
       };
     }
-
     if (mes == 5) {
       const xValues = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'];
       var datamesa = {
@@ -223,7 +217,6 @@ fetch('api/resumomes.php?ano=' + ano)
         ]
       };
     }
-
     if (mes == 4) {
       const xValues = ['Janeiro', 'Fevereiro', 'Março', 'Abril'];
       var datamesa = {
@@ -250,7 +243,6 @@ fetch('api/resumomes.php?ano=' + ano)
         ]
       };
     }
-
     if (mes == 3) {
       const xValues = ['Janeiro', 'Fevereiro', 'Março'];
       var datamesa = {
@@ -277,7 +269,6 @@ fetch('api/resumomes.php?ano=' + ano)
         ]
       };
     }
-
     if (mes == 2) {
       const xValues = ['Janeiro', 'Fevereiro'];
       var datamesa = {
@@ -304,7 +295,6 @@ fetch('api/resumomes.php?ano=' + ano)
         ]
       };
     }
-
     if (mes == 1) {
       const xValues = ['Janeiro'];
       var datamesa = {
@@ -331,7 +321,6 @@ fetch('api/resumomes.php?ano=' + ano)
         ]
       };
     }
-
 
     new Chart("myChart", {
       type: "line",

@@ -174,7 +174,7 @@
       <script src="js/pagar.js"></script>
       <script src="js/resumofin.js"></script>
       <script src="js/page.js"></script>
-      <script src="js/chat.js"></script>
+      <script src="js/chat.min.js"></script>
 
 </body>
 

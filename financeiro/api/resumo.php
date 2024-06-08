@@ -58,6 +58,11 @@ foreach ($resultdividas as $row) {
     $valordevido += $valor;
 }
 
+// formatar moeda
+$valorinvestido = number_format($valorinvestido, 2, ',', '.');
+$valorempreendido = number_format($valorempreendido, 2, ',', '.');
+$valordevido = number_format($valordevido, 2, ',', '.');
+
 // Retorna os valores como JSON
 echo json_encode(array(
     'investidos' => $valorinvestido,

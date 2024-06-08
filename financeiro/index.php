@@ -34,8 +34,11 @@
     <div class="boxContent">
       <div class="firstRow pagina init" style="flex-wrap: wrap;margin-top: 0px;padding-top: 20px;">
 
-        <div class="col-md-3 ml-auto" style="margin-bottom: 20px;margin-right: 16px">
-          <select name="mes" id="mescna" class="form-control" onchange="resumomes()">
+
+
+
+        <div class="col-md-5 ml-auto" style="margin-bottom: 20px;margin-right: 16px;display: flex; justify-content: space-between;">
+          <select name="mescna" id="mescna" class="form-control" onchange="resumomes()">
             <option value="1">Janeiro</option>
             <option value="2">Fevereiro</option>
             <option value="3">Março</option>
@@ -48,6 +51,20 @@
             <option value="10">Outubro</option>
             <option value="11">Novembro</option>
             <option value="12">Dezembro</option>
+          </select>
+
+          <select name="anocna" id="anocna" class="form-control" onchange="resumomes()" style="margin-left: 16px;">
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+            <option value="2029">2029</option>
+            <option value="2030">2030</option>
           </select>
         </div>
 
@@ -169,6 +186,7 @@
           <tbody id="empreendidostablebody"></tbody>
         </table>
       </div>
+      <script src="js/config.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <script src="js/atualiza.js"></script>

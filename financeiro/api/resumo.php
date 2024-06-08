@@ -6,28 +6,56 @@ header('Content-Type: application/json; charset=utf-8');
 
 include_once 'conexao.php';
 
-// Consulta o último valor investido
-$sqlinvestidos = "SELECT * FROM `investidos` ORDER BY id DESC LIMIT 1";
+
+function formatar($valor)
+{
+    if (strlen($valor) == 4) {
+        $valor = str_replace(',', '.', $valor);
+    }
+    if (strlen($valor) == 5) {
+        $valor = str_replace(',', '.', $valor);
+    }
+    if (strlen($valor) == 6) {
+        $valor = str_replace(',', '.', $valor);
+    }
+    if (strlen($valor) == 8) {
+        $valor = str_replace('.', '', $valor);
+        $valor = str_replace(',', '.', $valor);
+    }
+    if (strlen($valor) == 9) {
+        $valor = str_replace('.', '', $valor);
+        $valor = str_replace(',', '.', $valor);
+    }
+
+    return $valor;
+}
+
+
+$mes = $_GET['mes'];
+$ano = $_GET['ano'];
+
+$sqlinvestidos = "SELECT * FROM `investidos` WHERE MONTH(created_at) = $mes AND YEAR(created_at) = $ano";
 $resultinvestidos = mysqli_query($conexao, $sqlinvestidos);
 $valorinvestido = 0;
-if ($row = mysqli_fetch_assoc($resultinvestidos)) {
-    $valorinvestido = $row['valor'];
+while ($row = mysqli_fetch_assoc($resultinvestidos)) {
+    $valorinvestido += $row['valor'];
 }
 
 // Consulta o último valor empreendido
-$sqlempreendidos = "SELECT * FROM `empreendidos` ORDER BY id DESC LIMIT 1";
+$sqlempreendidos = "SELECT * FROM `empreendidos` WHERE MONTH(created_at) = $mes AND YEAR(created_at) = $ano";
 $resultempreendidos = mysqli_query($conexao, $sqlempreendidos);
 $valorempreendido = 0;
-if ($row = mysqli_fetch_assoc($resultempreendidos)) {
-    $valorempreendido = $row['valor'];
+foreach ($resultempreendidos as $row) {
+    $valorempreendido += $row['valor'];
 }
 
 // Consulta o último valor devido
-$sqldividas = "SELECT * FROM `dividas` ORDER BY id DESC LIMIT 1";
+$sqldividas = "SELECT * FROM `dividas` WHERE MONTH(created_at) = $mes AND YEAR(created_at) = $ano";
 $resultdividas = mysqli_query($conexao, $sqldividas);
 $valordevido = 0;
-if ($row = mysqli_fetch_assoc($resultdividas)) {
-    $valordevido = $row['valor'];
+foreach ($resultdividas as $row) {
+    $valor = formatar($row['valor']);
+    $valordevido += $valor;
 }
 
 // Retorna os valores como JSON

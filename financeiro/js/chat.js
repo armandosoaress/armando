@@ -1,9 +1,10 @@
 function resumomes() {
-  const ano = new Date().getFullYear();
+  listresumo();
+  ano = document.getElementById('anocna').value;
   mes = document.getElementById('mescna').value;
 
 
-  fetch('api/resumomes.php?ano=' + ano)
+  fetch('api/resumomes.php?ano=' + ano + '&mes=' + mes)
     .then(response => response.json())
     .then(data => {
 
@@ -88,9 +89,4 @@ function resumomes() {
 
     });
 }
-
-// pega o mês atual
-const mesAtual = new Date().getMonth() + 1;
-document.getElementById('mescna').value = mesAtual;
-
 resumomes();

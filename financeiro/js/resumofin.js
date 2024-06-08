@@ -58,7 +58,9 @@ async function atualizarresumo(tipo) {
 }
 
 function listresumo() {
-    fetch('api/resumo.php')
+    var anocna = document.getElementById('anocna').value;
+    var mescna = document.getElementById('mescna').value;
+    fetch('api/resumo.php?ano=' + anocna + '&mes=' + mescna)
         .then(response => response.json())
         .then(data => {
             document.getElementById('dividas').innerText = data.dividas

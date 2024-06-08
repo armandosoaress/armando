@@ -41,13 +41,13 @@ function movimentacoes() {
                             </td>
 
                             <td>
-                                ${movimentacao.repetir == 0
-                            ? `<i class="bi bi-trash" style="cursor: pointer; text-align: left; padding-right: 10px;" onclick="deletar(${movimentacao.id})"></i>
-                                    <i class="bi bi-pencil" style="cursor: pointer; text-align: left;" onclick="editar(${movimentacao.id})"></i>`
-                            : '<i class="bi bi-trash" style="cursor: pointer; text-align: left; padding-right: 10px;" onclick="deletar(${movimentacao.id})"></i>'
+                            ${movimentacao.repetir == 0
+                                ? `<i class="bi bi-trash" style="cursor: pointer; text-align: left; padding-right: 10px;" onclick="deletar(${movimentacao.id})"></i>
+                                   <i class="bi bi-pencil" style="cursor: pointer; text-align: left;" onclick="editar(${movimentacao.id})"></i>`
+                                : `<i class="bi bi-trash" style="cursor: pointer; text-align: left; padding-right: 10px;" onclick="deletar(${movimentacao.id})"></i>`
                              }
-                            </td>
-
+                        </td>
+                        
                        
                         
                     </tr>`;

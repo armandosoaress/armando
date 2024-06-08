@@ -108,7 +108,7 @@ nav .user {
     margin-top: 10px;
 }
 
-.form-control{
+.form-control {
     background-color: #202020;
     color: white;
 }
@@ -340,4 +340,9 @@ html *::after {
     .menu {
         font-size: .8em;
     }
+}
+
+.swal2-popup{
+    width: 93%!important;
+    height: 90%!important;
 }

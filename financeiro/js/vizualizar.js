@@ -33,8 +33,6 @@ function movimentacoes() {
                             <td>${movimentacao.valor}</td>
                             <td>${movimentacao.data_vencimento}</td>
                             <td>${movimentacao.data_pagamento}</td>
-                      
-
                             <td>
                                 ${movimentacao.status == 0
                             ? `<i  style="cursor: pointer;font-size: 20px;" onclick="pagar(${movimentacao.id}, 1)" class="bi bi-toggle2-off"></i>`
@@ -42,10 +40,16 @@ function movimentacoes() {
                         }
                             </td>
 
-                        <td style="display: flex; border: none;">
-                            <i class="bi bi-trash" style="cursor: pointer; text-align: left;padding-right: 10px;"onclick="deletar(${movimentacao.id})"></i>
-                            <i class="bi bi-pencil" style="cursor: pointer; text-align: left;" onclick="editar(${movimentacao.id})"></i>
-                        </td>
+                            <td>
+                                ${movimentacao.repetir == 0
+                            ? `<i class="bi bi-trash" style="cursor: pointer; text-align: left; padding-right: 10px;" onclick="deletar(${movimentacao.id})"></i>
+                                    <i class="bi bi-pencil" style="cursor: pointer; text-align: left;" onclick="editar(${movimentacao.id})"></i>`
+                            : ''
+                             }
+                            </td>
+
+                       
+                        
                     </tr>`;
                     document.getElementById(movimentacao.categoria).innerHTML += divmovimentacao;
                 });

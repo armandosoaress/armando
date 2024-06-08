@@ -63,9 +63,20 @@ function listresumo() {
     fetch('api/resumo.php?ano=' + anocna + '&mes=' + mescna)
         .then(response => response.json())
         .then(data => {
-            document.getElementById('dividas').innerText = data.dividas
-            document.getElementById('empreendidos').innerText = data.empreendidos
-            document.getElementById('investidos').innerText = data.investidos
+            var i = 0;
+            var parar = 1000;
+            var intervalo = setInterval(() => {
+                i = i + 20;
+                document.getElementById('dividas').innerText = i;
+                document.getElementById('empreendidos').innerText = i;
+                document.getElementById('investidos').innerText = i;
+                if (i >= parar) {
+                    clearInterval(intervalo);
+                    document.getElementById('dividas').innerText = data.dividas
+                    document.getElementById('empreendidos').innerText = data.empreendidos
+                    document.getElementById('investidos').innerText = data.investidos
+                }
+            }, 0);
         })
 }
 listresumo();

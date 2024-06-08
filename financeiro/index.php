@@ -76,7 +76,7 @@
       </div>
       <div class="thirdRow pagina organizador">
         <div class="init" id="init">
-          <div class="row" style="background-color: #ffffff;">
+          <div class="row">
             <div class="col-md-4">
               <select name="mes" id="vp" class="form-control" onchange="movimentacoes()">
                 <option value="1">Vencimento</option>

@@ -108,13 +108,10 @@ nav .user {
     margin-top: 10px;
 }
 
-/* #mescna {
-    width: 200px;
-    padding: 10px;
-    margin-left: 16px;
-    padding-top: 10px;
-    margin-bottom: 23px;
-} */
+.form-control{
+    background-color: #202020;
+    color: white;
+}
 
 /* CSS of Box Content */
 

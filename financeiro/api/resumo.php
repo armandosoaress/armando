@@ -38,7 +38,8 @@ $sqlinvestidos = "SELECT * FROM `investidos` WHERE MONTH(created_at) = $mes AND 
 $resultinvestidos = mysqli_query($conexao, $sqlinvestidos);
 $valorinvestido = 0;
 while ($row = mysqli_fetch_assoc($resultinvestidos)) {
-    $valorinvestido += $row['valor'];
+    $valor = formatar($row['valor']);
+    $valorinvestido += $valor;
 }
 
 // Consulta o último valor empreendido
@@ -46,7 +47,8 @@ $sqlempreendidos = "SELECT * FROM `empreendidos` WHERE MONTH(created_at) = $mes 
 $resultempreendidos = mysqli_query($conexao, $sqlempreendidos);
 $valorempreendido = 0;
 foreach ($resultempreendidos as $row) {
-    $valorempreendido += $row['valor'];
+    $valor = formatar($row['valor']);
+    $valorempreendido += $valor;
 }
 
 // Consulta o último valor devido

@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/icon.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
   <script src="js/chart/index.js"></script>
 </head>
 

@@ -14,7 +14,7 @@ function listacategorias() {
                     <th>Vencimento</th>
                     <th>Pagamento</th>
                     <th>Pago</th>
-                    <th></th>
+                    <th>Ação</th>
                   </tr>
                 </thead>
                 <tbody id="${categoria.id}" class="resultadosmovimentacoes">

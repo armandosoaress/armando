@@ -16,13 +16,13 @@ function movimentacoes() {
                     movimentacao.data_vencimento = data_vencimento;
                     movimentacao.data_pagamento = data_pagamento;
 
-                    if ( movimentacao.data_pagamento == '00/00/0000' ) {
+                    if (movimentacao.data_pagamento == '00/00/0000') {
                         movimentacao.data_pagamento = '';
                     }
-                    if ( movimentacao.data_vencimento == '00/00/0000' ) {
+                    if (movimentacao.data_vencimento == '00/00/0000') {
                         movimentacao.data_vencimento = '';
                     }
-                    
+
                     const divmovimentacao = `
                         <tr>
                             <td>
@@ -33,15 +33,18 @@ function movimentacoes() {
                             <td>${movimentacao.valor}</td>
                             <td>${movimentacao.data_vencimento}</td>
                             <td>${movimentacao.data_pagamento}</td>
-                        <td>
-                            ${movimentacao.status == 0
-                            ? `<i class="bi bi-toggle2-off"></i>`
-                            : `<img src="img/on.png" height="22px" style="cursor: pointer;" onclick="pagar(${movimentacao.id}, 0)">`
+                      
+
+                            <td>
+                                ${movimentacao.status == 0
+                            ? `<i  style="cursor: pointer;font-size: 20px;color: red;" onclick="pagar(${movimentacao.id}, 1)" class="bi bi-toggle2-off"></i>`
+                            : `<i style="cursor: pointer;font-size: 20px;color:#0011ff" onclick="pagar(${movimentacao.id}, 0)" class="bi bi-toggle2-on"></i>`
                         }
-                        </td>
-                        <td>
-                            <img src="img/delete.png" style="cursor: pointer; text-align: left;" height="22px" onclick="deletar(${movimentacao.id})">
-                            <img src="img/edit.png" style="cursor: pointer; text-align: left;" height="22px" onclick="editar(${movimentacao.id})">
+                            </td>
+
+                        <td style="display: flex; border: none;">
+                            <i class="bi bi-trash" style="cursor: pointer; text-align: left;padding-right: 10px;"onclick="deletar(${movimentacao.id})"></i>
+                            <i class="bi bi-pencil" style="cursor: pointer; text-align: left;" onclick="editar(${movimentacao.id})"></i>
                         </td>
                     </tr>`;
                     document.getElementById(movimentacao.categoria).innerHTML += divmovimentacao;

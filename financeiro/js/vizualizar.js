@@ -37,7 +37,7 @@ function movimentacoes() {
 
                             <td>
                                 ${movimentacao.status == 0
-                            ? `<i  style="cursor: pointer;font-size: 20px;color: red;" onclick="pagar(${movimentacao.id}, 1)" class="bi bi-toggle2-off"></i>`
+                            ? `<i  style="cursor: pointer;font-size: 20px;" onclick="pagar(${movimentacao.id}, 1)" class="bi bi-toggle2-off"></i>`
                             : `<i style="cursor: pointer;font-size: 20px;color:#0011ff" onclick="pagar(${movimentacao.id}, 0)" class="bi bi-toggle2-on"></i>`
                         }
                             </td>

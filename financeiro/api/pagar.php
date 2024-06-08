@@ -17,7 +17,11 @@ if ($repetir == '1') {
     $sql = "INSERT INTO movimentacoesrepetir (id_movimentacao, status,data_pagamento) VALUES ($id, '$status', '$dtPagamento')";
     mysqli_query($conexao, $sql);
 }
-$sql = "UPDATE movimentacoes set status = '$status' where id = $id";
+if($status ==1){
+    $sql = "UPDATE movimentacoes set status = '$status', data_pagamento = '$dtPagamento' WHERE id = $id";
+}else{
+    $sql = "UPDATE movimentacoes set status = '$status', data_pagamento = NULL WHERE id = $id";
+}
 if (mysqli_query($conexao, $sql)) {
     echo json_encode(array(
         'mensagem' => 'Movimentação atualizada com sucesso',

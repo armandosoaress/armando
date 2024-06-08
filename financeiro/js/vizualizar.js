@@ -35,7 +35,7 @@ function movimentacoes() {
                             <td>${movimentacao.data_pagamento}</td>
                         <td>
                             ${movimentacao.status == 0
-                            ? `<img src="img/off.png" height="22px" style="cursor: pointer;" onclick="pagar(${movimentacao.id}, 1)">`
+                            ? `<i class="bi bi-toggle2-off"></i>`
                             : `<img src="img/on.png" height="22px" style="cursor: pointer;" onclick="pagar(${movimentacao.id}, 0)">`
                         }
                         </td>

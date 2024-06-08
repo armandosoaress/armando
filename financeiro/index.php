@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-
 <head>
   <meta charset="UTF-8">
   <title>Gestão Financeira</title>
@@ -15,35 +14,42 @@
 </head>
 
 <body>
-
   <div class="sideBarre">
     <div class="sideBarre__logo">
-      <div class="sideBarre__cercle">
-      </div>
+      <img id="logoimg" src="img/67761071.jpg " alt="Logo">
     </div>
     <div class="sideBarre__menu">
-      <ul>
-        <li class="menu_init" onclick="showPage('init')"><a href="javascript:void(0)">Início</a></li>
+      <ul style="padding-top: 20px;">
+        <li class="menu_init" onclick="showPage('init')"><a href="javascript:void(0)" style="color: black;">Resumo</a></li>
         <li class="menu_organizador" onclick="showPage('organizador')"><a href="javascript:void(0)">Finanças</a></li>
-        <!-- <li class="menu_investimentos" onclick="showPage('investimentos')"><a
-            href="javascript:void(0)">Investimentos</a></li>
+        <li class="menu_investimentos" onclick="showPage('investimentos')"><a href="javascript:void(0)">Investimentos</a></li>
         <li class="menu_dividas" onclick="showPage('dividas')"><a href="javascript:void(0)">Dividas</a></li>
-        <li class="menu_empreendidos" onclick="showPage('empreendidos')"><a href="javascript:void(0)">Empreendidos</a> -->
-
+        <li class="menu_empreendidos" onclick="showPage('empreendidos')"><a href="javascript:void(0)">Empreendidos</a>
         </li>
       </ul>
     </div>
   </div>
-
   <div class="mainContent">
-    <nav>
-      <div class="user">
-
-      </div>
-    </nav>
-
     <div class="boxContent">
-      <div class="firstRow pagina init" style="flex-wrap: wrap">
+      <div class="firstRow pagina init" style="flex-wrap: wrap;margin-top: 0px;padding-top: 20px;">
+
+        <div class="col-md-3 ml-auto" style="margin-bottom: 20px;margin-right: 16px">
+          <select name="mes" id="mescna" class="form-control" onchange="resumomes()">
+            <option value="1">Janeiro</option>
+            <option value="2">Fevereiro</option>
+            <option value="3">Março</option>
+            <option value="4">Abril</option>
+            <option value="5">Maio</option>
+            <option value="6">Junho</option>
+            <option value="7">Julho</option>
+            <option value="8">Agosto</option>
+            <option value="9">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
+          </select>
+        </div>
+
         <div class="col-md-12" style="display: flex; justify-content: space-between;">
           <div class="cardTwo" onclick="atualizarresumo('dividas')">
             <div class="description">
@@ -64,7 +70,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12" style="flex-wrap: wrap;padding-top: 20px;">
+        <div class="col-md-12" style="flex-wrap: wrap;padding-top: 40px;">
           <canvas id="myChart" style="width: 544px;display: block;height: 172px;"></canvas>
         </div>
       </div>
@@ -162,8 +168,6 @@
           <tbody id="empreendidostablebody"></tbody>
         </table>
       </div>
-
-
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <script src="js/atualiza.js"></script>
@@ -174,7 +178,7 @@
       <script src="js/pagar.js"></script>
       <script src="js/resumofin.js"></script>
       <script src="js/page.js"></script>
-      <script src="js/chat.min.js"></script>
+      <script src="js/chat.js"></script>
 
 </body>
 

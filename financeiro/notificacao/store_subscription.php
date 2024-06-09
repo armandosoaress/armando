@@ -6,7 +6,7 @@ header('Content-Type: application/json');
 $subscription = json_decode(file_get_contents('php://input'), true);
 
 // Caminho do arquivo onde as assinaturas serão armazenadas
-$file = 'subscriptions.json';
+$file = '../../jobs/public/subscriptions.json';
 
 
 if (file_exists($file)) {

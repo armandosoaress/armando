@@ -16,7 +16,7 @@
 
 <body>
   <div class="sideBarre">
-    <div class="sideBarre__logo">
+    <div class="sideBarre__logo" onclick="showPage('init')" style="cursor: pointer;">
       <img id="logoimg" src="img/67761071.jpg " alt="Logo">
     </div>
     <div class="sideBarre__menu">

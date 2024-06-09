@@ -58,5 +58,5 @@ foreach ($webPush->flush() as $report) {
     }
 }
 
-
-echo "Notificações enviadas.\n";
+echo "<br>";
+echo "Notificações enviadas!.\n";

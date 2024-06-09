@@ -17,7 +17,7 @@ $auth = array(
     ),
 );
 $webPush = new WebPush($auth);
-$file = 'subscriptions.json';
+$file = '../subscriptions.json';
 $subscriptions = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
 $payload = json_encode([
     'title' => 'Notificação Periódica',

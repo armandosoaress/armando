@@ -19,6 +19,8 @@
     <div class="sideBarre__logo" onclick="showPage('init')" style="cursor: pointer;">
       <img id="logoimg" src="img/67761071.jpg " alt="Logo">
     </div>
+    <br>
+    <span style="color: white;">versao 1.0</span>
     <div class="sideBarre__menu">
       <ul style="padding-top: 20px;">
         <li class="menu_init" onclick="showPage('init')"><a href="javascript:void(0)" style="color: black;">Resumo</a></li>

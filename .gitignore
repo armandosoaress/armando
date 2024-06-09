@@ -3,3 +3,5 @@ financeiro/api/conexao.php
 financeiro/index.html
 jobs/vendor
 subscriptions.json
+/jobs/backups
+jobs/public/bakcups

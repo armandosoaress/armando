@@ -202,36 +202,8 @@
       <script src="js/resumofin.js"></script>
       <script src="js/page.js"></script>
       <script src="js/chat.js"></script>
+      <script src="js/versao.js"></script>
 
-
-      <script>
-// Repositório desejado
-const owner = "armandosoaress";
-const repo = "armando";
-
-// URL da API do GitHub para obter informações sobre o último commit
-const apiUrl = `https://api.github.com/repos/${owner}/${repo}/commits`;
-
-// Requisição para a API do GitHub
-fetch(apiUrl)
-  .then(response => response.json())
-  .then(data => {
-    const ultimoCommit = data[0]; // O último commit está no topo da lista
-    const mensagem = ultimoCommit.commit.message;
-    const autor = ultimoCommit.commit.author.name;
-    const dataCommit = ultimoCommit.commit.author.date;
-
-    // Exibindo informações sobre o último commit na página
-    document.getElementById("ultimoCommit").innerHTML = `
-      <p><strong>Mensagem:</strong> ${mensagem}</p>
-      <p><strong>Autor:</strong> ${autor}</p>
-      <p><strong>Data do Commit:</strong> ${dataCommit}</p>
-    `;
-  })
-  .catch(error => {
-    console.error('Erro ao obter informações sobre o último commit:', error);
-  });
-</script>
 
 
 </body>

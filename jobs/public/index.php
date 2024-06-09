@@ -1,10 +1,7 @@
 <?php
 
-if ($_SERVER['SERVER_NAME'] == 'localhost') {
-    require __DIR__ . '/../../../vendor/autoload.php';
-}else{
-    require __DIR__ . '/vendor/autoload.php';
-}
+
+require __DIR__ . '/../vendor/autoload.php';
 
 
 use Minishlink\WebPush\WebPush;

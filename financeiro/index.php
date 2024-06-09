@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
   <script src="js/chart/index.js"></script>
+  <link rel="icon" href="https://www.armandosoares.com.br/jobs/public/a.jpg" type="image/x-icon">
 </head>
 
 <body>

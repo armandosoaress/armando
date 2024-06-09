@@ -1,6 +1,6 @@
 <?php
 try {
-    require __DIR__ . '/vendor/autoload.php';
+   include 'vendor/autoload.php';
 } catch (\Throwable $th) {
     echo 'Erro ao carregar o arquivo de autoload: ' . $th->getMessage();
     exit;

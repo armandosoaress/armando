@@ -21,7 +21,7 @@
     </div>
     <br>
     <center>
-      <span style="color: white;" id="version">Versão 3.0</span>
+      <span style="color: white;" id="version">Carregando...</span>
     </center>
     <div class="sideBarre__menu">
       <ul style="padding-top: 20px;">

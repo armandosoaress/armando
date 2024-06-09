@@ -25,7 +25,7 @@ if (mysqli_num_rows($result) > 0) {
     $file = '../subscriptions.json';
     $subscriptions = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
     $payload = json_encode([
-        'title' => 'Notificação Periódica',
+        'title' => 'Notificação de movimentações',
         'body' => 'Oi Armando, você tem movimentações que vencem amanhã.',
         'icon' =>  'https://www.armandosoares.com.br/jobs/public/a.jpg',
     ]);

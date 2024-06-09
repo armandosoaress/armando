@@ -18,7 +18,8 @@ $file = 'subscriptions.json';
 $subscriptions = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
 $payload = json_encode([
     'title' => 'Notificação Periódica',
-    'body' => 'Oi Armando, esta é uma notificação periódica enviada pelo servidor.'
+    'body' => 'Oi Armando, esta é uma notificação periódica enviada pelo servidor.',
+    'icon' =>  'https://www.armandosoares.com.br/jobs/public/a.jpg',
 ]);
 foreach ($subscriptions as $subscription) {
     $webPush->queueNotification(

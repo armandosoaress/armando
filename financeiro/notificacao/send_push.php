@@ -1,5 +1,10 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
+try {
+    require __DIR__ . '/vendor/autoload.php';
+} catch (\Throwable $th) {
+    echo 'Erro ao carregar o arquivo de autoload: ' . $th->getMessage();
+    exit;
+}
 
 use Minishlink\WebPush\WebPush;
 use Minishlink\WebPush\Subscription;

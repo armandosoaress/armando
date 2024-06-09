@@ -19,6 +19,8 @@ async function atualizarresumo(tipo) {
     });
 
     if (valor) {
+        var anocna = document.getElementById('anocna').value;
+        var mescna = document.getElementById('mescna').value;
         fetch('api/atualizaresumo.php', {
             method: 'POST',
             headers: {
@@ -41,7 +43,7 @@ async function atualizarresumo(tipo) {
                     text: 'Resumo atualizado com sucesso!',
                     icon: 'success'
                 });
-                fetch('api/resumo.php')
+                fetch('api/resumo.php?ano=' + anocna + '&mes=' + mescna)
                     .then(response => response.json())
                     .then(data => {
                         listresumo();

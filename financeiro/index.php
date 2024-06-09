@@ -39,9 +39,6 @@
     <div class="boxContent">
       <div class="firstRow pagina init" style="flex-wrap: wrap;margin-top: 0px;padding-top: 20px;">
 
-
-
-
         <div class="col-md-5 ml-auto" style="margin-bottom: 20px;margin-right: 16px;display: flex; justify-content: space-between;">
           <select name="mescna" id="mescna" class="form-control" onchange="resumomes()">
             <option value="1">Janeiro</option>
@@ -71,6 +68,9 @@
             <option value="2029">2029</option>
             <option value="2030">2030</option>
           </select>
+
+          <button class="btn btn-primary" onclick="lerValoresComVoz()" style="margin-left: 16px;">Resumo por voz</button>
+
         </div>
 
         <div class="col-md-12" style="display: flex; justify-content: space-between;">
@@ -82,7 +82,7 @@
           </div>
           <div class="cardThree" onclick="atualizarresumo('empreendidos')">
             <div class="description">
-              <p>Empreendidos</p>
+              <p>empreendimentos</p>
               <h3 id="empreendidos"></h3>
             </div>
           </div>
@@ -93,6 +93,101 @@
             </div>
           </div>
         </div>
+
+        <script>
+          function lerValoresComVoz() {
+            var dividasvoz = document.getElementById("dividas").innerText;
+            var investimentosvoz = document.getElementById("investidos").innerText;
+            var Empreendidosvoz = document.getElementById("empreendidos").innerText;
+
+            var data = new Date();
+            var hora = data.getHours();
+            var saudacao = "";
+            if (hora >= 0 && hora < 12) {
+              saudacao = "Bom dia";
+            } else if (hora >= 12 && hora < 18) {
+              saudacao = "Boa tarde";
+            } else {
+              saudacao = "Boa noite";
+            }
+
+            // converter os valores para o formato correto
+            if (dividasvoz.length == 8) {
+              dividasvoz = dividasvoz.replace(".", "");
+              dividasvoz = dividasvoz.replace(",", ".");
+            }
+
+            if (investimentosvoz.length == 8) {
+              investimentosvoz = investimentosvoz.replace(".", "");
+              investimentosvoz = investimentosvoz.replace(",", ".");
+            }
+
+            if (Empreendidosvoz.length == 8) {
+              Empreendidosvoz = Empreendidosvoz.replace(".", "");
+              Empreendidosvoz = Empreendidosvoz.replace(",", ".");
+            }
+
+            if (dividasvoz.length == 6) {
+              dividasvoz = dividasvoz.replace(",", ".");
+            }
+            if (investimentosvoz.length == 6) {
+              investimentosvoz = investimentosvoz.replace(",", ".");
+            }
+
+            if (Empreendidosvoz.length == 6) {
+              Empreendidosvoz = Empreendidosvoz.replace(",", ".");
+            }
+
+            // apagar o que tiver depoi do ponto
+            dividasvoz = dividasvoz.split(".")[0];
+            investimentosvoz = investimentosvoz.split(".")[0];
+            Empreendidosvoz = Empreendidosvoz.split(".")[0];
+            // fim da conversão
+
+            var dividasNumerico = dividasvoz;
+            var dividasPorExtenso = dividasNumerico;
+            var investimentosNumerico = investimentosvoz;
+            var investimentosPorExtenso = investimentosNumerico;
+            var EmpreendidosNumerico = Empreendidosvoz;
+            var EmpreendidosPorExtenso = EmpreendidosNumerico;
+
+
+            var texto = saudacao + " Senhor. Nossas dívidas estão em " + dividasPorExtenso + " reais.";
+            texto += " Nossos investimentos estão em " + investimentosPorExtenso + " reais.";
+            texto += " E nossos empreendimentos estão em " + EmpreendidosPorExtenso + " reais.";
+
+            // fazer um fetch para vencendo.php e pegar os valores de hoje e amanhã
+            fetch("api/vencendo.php")
+              .then(response => response.json())
+              .then(data => {
+                montarvoz(data.vencendohoje, data.vencendoamanha, )
+              });
+
+            function montarvoz(vencendohoje, vencendoamanha) {
+              for (let i = 0; i < vencendohoje.length; i++) {
+                const element = vencendohoje[i];
+                texto += " Hoje vence " + element.descricao + " no valor de " + element.valor + " reais.";
+              }
+              for (let i = 0; i < vencendoamanha.length; i++) {
+                const element = vencendoamanha[i];
+                texto += " Amanhã vence " + element.descricao + " no valor de " + element.valor + " reais.";
+              }
+
+              var vozes = window.speechSynthesis.getVoices();
+              var vozMasculina = vozes.find(voice => voice.name === 'Google português do Brasil masculino');
+              var utterance = new SpeechSynthesisUtterance(texto);
+
+              // Definindo a voz masculina
+              utterance.voice = vozMasculina;
+
+              // Ajustando a propriedade de pitch para deixar a voz mais grave
+              utterance.pitch = 0;
+
+              // Executando a síntese de fala
+              window.speechSynthesis.speak(utterance);
+            }
+          }
+        </script>
         <div class="col-md-12" style="flex-wrap: wrap;padding-top: 40px;">
           <canvas id="myChart" style="width: 544px;display: block;height: 172px;"></canvas>
         </div>

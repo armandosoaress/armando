@@ -153,8 +153,8 @@
 
 
             var texto = saudacao + " Senhor. Nossas dívidas estão em " + dividasPorExtenso + " reais.";
-            texto += " Nossos investimentos estão em " + investimentosPorExtenso + " reais.";
             texto += " E nossos empreendimentos estão em " + EmpreendidosPorExtenso + " reais.";
+            texto += " Nossos investimentos estão em " + investimentosPorExtenso + " reais.";
 
             // fazer um fetch para vencendo.php e pegar os valores de hoje e amanhã
             fetch("api/vencendo.php")
@@ -166,11 +166,19 @@
             function montarvoz(vencendohoje, vencendoamanha) {
               for (let i = 0; i < vencendohoje.length; i++) {
                 const element = vencendohoje[i];
-                texto += " Hoje vence " + element.descricao + " no valor de " + element.valor + " reais.";
+                if (i == 0) {
+                  texto += " Hoje vence " + element.descricao;
+                } else {
+                  texto += " e " + element.descricao;
+                }
               }
               for (let i = 0; i < vencendoamanha.length; i++) {
                 const element = vencendoamanha[i];
-                texto += " Amanhã vence " + element.descricao + " no valor de " + element.valor + " reais.";
+                if (i == 0) {
+                  texto += " Amanhã vence " + element.descricao;
+                } else {
+                  texto += " e " + element.descricao;
+                }
               }
 
               var vozes = window.speechSynthesis.getVoices();

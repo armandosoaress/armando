@@ -9,9 +9,10 @@
 
 <body>
 
+    <button onclick="subscribeUser()">Inscrever-se para notificações push</button>
 
     <script>
-        subscribeUser()
+
         // Verifique se o navegador suporta service workers
         if ('serviceWorker' in navigator && 'PushManager' in window) {
             navigator.serviceWorker.register('service-worker.js')

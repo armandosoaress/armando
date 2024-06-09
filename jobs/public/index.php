@@ -57,3 +57,6 @@ foreach ($webPush->flush() as $report) {
         echo "[x] Falha ao enviar mensagem para {$endpoint}: {$report->getReason()}.\n";
     }
 }
+
+
+echo "Notificações enviadas.\n";

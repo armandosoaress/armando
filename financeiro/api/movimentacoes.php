@@ -27,6 +27,7 @@ if (isset($_GET['id'])) {
     $where = " id = $id";
 }
 $sql .= " WHERE $where";
+$sql .= " ORDER BY categoria desc";
 
 $resultado = mysqli_query($conexao, $sql);
 if (mysqli_num_rows($resultado) > 0) {

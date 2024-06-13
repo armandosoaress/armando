@@ -30,6 +30,10 @@ function movimentacoes() {
                     if (totalcategoria != movimentacao.categoria) {
                         totalvalor = 0;
                     }
+                    if (movimentacao.valor.length == 8) {
+                        movimentacao.valor = movimentacao.valor.replace('.', '');
+                        movimentacao.valor = movimentacao.valor.replace(',', '.');
+                    }
                     totalvalor += parseFloat(movimentacao.valor);
 
                     document.getElementById('total' + movimentacao.categoria).innerHTML = totalvalor.toFixed(2).replace('.', ',');

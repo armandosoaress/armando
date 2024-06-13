@@ -6,10 +6,11 @@ function movimentacoes() {
     fetch('./api/movimentacoes.php?mes=' + mes + '&ano=' + ano + '&vp=' + vp)
         .then(response => response.json())
         .then(data => {
+            document.querySelectorAll('.resultadosmovimentacoes').forEach(element => {
+                element.innerHTML = '';
+            });
             if (data.length > 0) {
-                data.forEach(movimentacao => {
-                    document.getElementById(movimentacao.categoria).innerHTML = '';
-                });
+
                 data.forEach(movimentacao => {
                     const data_vencimento = movimentacao.data_vencimento.split('-').reverse().join('/');
                     const data_pagamento = movimentacao.data_pagamento.split('-').reverse().join('/');
@@ -42,10 +43,10 @@ function movimentacoes() {
 
                             <td>
                             ${movimentacao.repetir == 0
-                                ? `<i class="bi bi-trash" style="cursor: pointer; text-align: left; padding-right: 10px;" onclick="deletar(${movimentacao.id})"></i>
+                            ? `<i class="bi bi-trash" style="cursor: pointer; text-align: left; padding-right: 10px;" onclick="deletar(${movimentacao.id})"></i>
                                    <i class="bi bi-pencil" style="cursor: pointer; text-align: left;" onclick="editar(${movimentacao.id})"></i>`
-                                : `<i class="bi bi-trash" style="cursor: pointer; text-align: left; padding-right: 10px;" onclick="deletar(${movimentacao.id})"></i>`
-                             }
+                            : `<i class="bi bi-trash" style="cursor: pointer; text-align: left; padding-right: 10px;" onclick="deletar(${movimentacao.id})"></i>`
+                        }
                         </td>
                         
                        
@@ -53,12 +54,6 @@ function movimentacoes() {
                     </tr>`;
                     document.getElementById(movimentacao.categoria).innerHTML += divmovimentacao;
                 });
-            } else {
-                // remover todas movimentaçoes da "class" resultadosmovimentacoes
-                document.querySelectorAll('.resultadosmovimentacoes').forEach(element => {
-                    element.innerHTML = '';
-                });
-
             }
         })
         .catch(error => {

@@ -11,11 +11,14 @@ function movimentacoes() {
             });
             if (data.length > 0) {
 
+                var totalvalor = 0;
+                var totalcategoria = 0;
                 data.forEach(movimentacao => {
                     const data_vencimento = movimentacao.data_vencimento.split('-').reverse().join('/');
                     const data_pagamento = movimentacao.data_pagamento.split('-').reverse().join('/');
                     movimentacao.data_vencimento = data_vencimento;
                     movimentacao.data_pagamento = data_pagamento;
+
 
                     if (movimentacao.data_pagamento == '00/00/0000') {
                         movimentacao.data_pagamento = '';
@@ -23,6 +26,16 @@ function movimentacoes() {
                     if (movimentacao.data_vencimento == '00/00/0000') {
                         movimentacao.data_vencimento = '';
                     }
+
+                    if (totalcategoria != movimentacao.categoria) {
+                        totalvalor = 0;
+                    }
+                    totalvalor += parseFloat(movimentacao.valor);
+
+                    document.getElementById('total' + movimentacao.categoria).innerHTML = totalvalor.toFixed(2).replace('.', ',');
+
+
+                    totalcategoria = movimentacao.categoria;
 
                     const divmovimentacao = `
                         <tr>
@@ -54,6 +67,7 @@ function movimentacoes() {
                     </tr>`;
                     document.getElementById(movimentacao.categoria).innerHTML += divmovimentacao;
                 });
+
             }
         })
         .catch(error => {

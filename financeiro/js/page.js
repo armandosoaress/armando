@@ -20,6 +20,7 @@ function changeMenuColor(page) {
     });
 }
 function showPage(page) {
+    localStorage.setItem('pagefinanceiro', page);
     changeMenuColor(page);
     document.querySelectorAll('.pagina').forEach(pagina => {
         pagina.style.display = 'none';
@@ -31,3 +32,8 @@ document.querySelectorAll('.pagina').forEach(pagina => {
     pagina.style.display = 'none';
 });
 document.querySelector('.init').style.display = 'flex';
+
+const page = localStorage.getItem('pagefinanceiro');
+if (page) {
+    showPage(page);
+}

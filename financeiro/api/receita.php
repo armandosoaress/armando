@@ -3,7 +3,9 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header('Content-Type: text/html; charset=utf-8');
+// brazilian portuguese
 date_default_timezone_set('America/Sao_Paulo');
+
 include_once 'conexao.php';
 $diasDaSemana = [];
 $diasDaSemana[] = date('Y-m-d', strtotime('monday this week'));
@@ -15,7 +17,7 @@ $diasDaSemana[] = date('Y-m-d', strtotime('saturday this week'));
 $diasDaSemana[] = date('Y-m-d', strtotime('sunday this week'));
 $dataAtual = date('Y-m-d');
 foreach ($diasDaSemana as $key => $value) {
-    if ($value >= $dataAtual) {
+    if ($value > $dataAtual) {
         unset($diasDaSemana[$key]);
     }
 }

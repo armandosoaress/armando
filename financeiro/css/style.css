@@ -130,6 +130,7 @@ nav .user {
 
 .empreendidos,
 .investimentos,
+.receita,
 .dividas {
     flex-direction: column;
     padding: 16px;
@@ -342,7 +343,7 @@ html *::after {
     }
 }
 
-.swal2-popup{
-    width: 93%!important;
-    height: 90%!important;
+.swal2-popup {
+    width: 49% !important;
+    height: 78% !important;
 }

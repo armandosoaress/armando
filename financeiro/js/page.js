@@ -4,7 +4,8 @@ function changeMenuColor(page) {
         '.menu_organizador',
         '.menu_investimentos',
         '.menu_dividas',
-        '.menu_empreendidos'
+        '.menu_empreendidos',
+        '.menu_receita',
     ];
     menus.forEach(menu => {
         document.querySelector(menu).style.backgroundColor = 'transparent';

@@ -28,6 +28,7 @@
       <ul style="padding-top: 20px;">
         <li class="menu_init" onclick="showPage('init')"><a href="javascript:void(0)" style="color: black;">Resumo</a></li>
         <li class="menu_organizador" onclick="showPage('organizador')"><a href="javascript:void(0)">Finanças</a></li>
+        <li class="menu_receita" onclick="showPage('receita')"><a href="javascript:void(0)">Receita </a></li>
         <li class="menu_investimentos" onclick="showPage('investimentos')"><a href="javascript:void(0)">Investimentos</a></li>
         <li class="menu_dividas" onclick="showPage('dividas')"><a href="javascript:void(0)">Dividas</a></li>
         <li class="menu_empreendidos" onclick="showPage('empreendidos')"><a href="javascript:void(0)">Empreendidos</a>
@@ -93,6 +94,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-md-12" style="flex-wrap: wrap;padding-top: 40px;">
           <canvas id="myChart" style="width: 544px;display: block;height: 172px;"></canvas>
         </div>
@@ -191,6 +193,16 @@
           <tbody id="empreendidostablebody"></tbody>
         </table>
       </div>
+
+      <div class="secondRow pagina receita">
+        <h3 style="color: white;">Receita</h3>
+        </h3>
+        <p>
+          <canvas id="myChart2" style="padding-top: 40px;"></canvas>
+
+      </div>
+
+
       <script src="js/config.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -205,7 +217,7 @@
       <script src="js/chat.js"></script>
       <script src="js/versao.js"></script>
       <script src="js/voz.js"></script>
-
+      <script src="js/receita.js"></script>
 
 
 </body>

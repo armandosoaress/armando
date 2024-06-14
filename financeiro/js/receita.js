@@ -12,7 +12,7 @@ fetch('./api/receita.php')
         data.forEach(element => {
             totalreceita += parseFloat(element['tempo']);
         });
-        document.getElementById("totalreceita").innerHTML = totalreceita;
+        document.getElementById("totalreceita").innerHTML = totalreceita * 40 + " R$";
 
         switch (n) {
             case 0:

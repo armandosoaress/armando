@@ -10,10 +10,10 @@ fetch('./api/receita.php')
 
         var totalreceita = 0;
         data.forEach(element => {
-            totalreceita +=  parseFloat(element['tempo']);
+            totalreceita += parseFloat(element['tempo']);
         });
         document.getElementById("totalreceita").innerHTML = totalreceita;
-        
+
         switch (n) {
             case 0:
                 xValues = ["SEG", "TER", "QUA", "QUI", "SEX", "SAB", "DOM"];
@@ -54,7 +54,10 @@ fetch('./api/receita.php')
                     fill: false,
                     lineTension: 0,
                     backgroundColor: "rgba(255,255,0,1.0)",
+                    pointRadius: 10,
+                    pointHoverRadius: 15,
                     borderColor: "rgba(255,255,255,1.0)",
+                    borderWidth: 3,
                     data: yValues
                 }]
             },
@@ -64,19 +67,19 @@ fetch('./api/receita.php')
                     yAxes: [{
                         ticks: {
                             min: 0,
-                            max: 10,
-                            fontColor: "rgba(255,255,255,1.0)"
+                            max: 8,
+                            fontColor: "white",
                         },
                         gridLines: {
-                            color: "rgba(255,255,255,0.1)"
+                            color: "rgba(255,255,255,0.2)"
                         }
                     }],
                     xAxes: [{
                         ticks: {
-                            fontColor: "rgba(255,255,255,1.0)"
+                            fontColor: 'white'
                         },
                         gridLines: {
-                            color: "rgba(255,255,255,0.1)"
+                            color: "white"
                         }
                     }]
                 },

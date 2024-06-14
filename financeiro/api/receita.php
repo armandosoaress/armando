@@ -3,6 +3,12 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header('Content-Type: text/html; charset=utf-8');
+
+// pega o dia e hora atual
+date_default_timezone_set('America/Sao_Paulo');
+$dia = date('Y-m-d');
+$hora = date('H:i:s');
+echo $dia . ' ' . $hora;
 include_once 'conexao.php';
 $diasDaSemana = [];
 $diasDaSemana[] = date('Y-m-d', strtotime('monday this week'));

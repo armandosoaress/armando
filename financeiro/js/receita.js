@@ -16,31 +16,31 @@ fetch('./api/receita.php')
 
         switch (n) {
             case 0:
-                xValues = ["SEG", "TER", "QUA", "QUI", "SEX", "SAB", "DOM"];
+                xValues = ["SEGUNDA", "TERÇA", "QUARTA", "QUINTA", "SEXTA", "SÁBADO", "DOMINGO"];
                 yValues = [data[0]['tempo'], data[1]['tempo'], data[2]['tempo'], data[3]['tempo'], data[4]['tempo'], data[5]['tempo'], data[6]['tempo']];
                 break;
             case 1:
-                xValues = ["SEG"];
+                xValues = ["SEGUNDA"];
                 yValues = [data[0]['tempo']];
                 break;
             case 2:
-                xValues = ["SEG", "TER"];
+                xValues = ["SEGUNDA", "TERÇA"];
                 yValues = [data[0]['tempo'], data[1]['tempo']];
                 break;
             case 3:
-                xValues = ["SEG", "TER", "QUA"];
+                xValues = ["SEGUNDA", "TERÇA", "QUARTA"];
                 yValues = [data[0]['tempo'], data[1]['tempo'], data[2]['tempo']];
                 break;
             case 4:
-                xValues = ["SEG", "TER", "QUA", "QUI"];
+                xValues = ["SEGUNDA", "TERÇA", "QUARTA", "QUINTA"];
                 yValues = [data[0]['tempo'], data[1]['tempo'], data[2]['tempo'], data[3]['tempo']];
                 break;
             case 5:
-                xValues = ["SEG", "TER", "QUA", "QUI", "SEX"];
+                xValues = ["SEGUNDA", "TERÇA", "QUARTA", "QUINTA", "SEXTA"];
                 yValues = [data[0]['tempo'], data[1]['tempo'], data[2]['tempo'], data[3]['tempo'], data[4]['tempo']];
                 break;
             case 6:
-                xValues = ["SEG", "TER", "QUA", "QUI", "SEX", "SAB"];
+                xValues = ["SEGUNDA", "TERÇA", "QUARTA", "QUINTA", "SEXTA", "SÁBADO"];
                 yValues = [data[0]['tempo'], data[1]['tempo'], data[2]['tempo'], data[3]['tempo'], data[4]['tempo'], data[5]['tempo']];
                 break;
         }
@@ -54,10 +54,9 @@ fetch('./api/receita.php')
                     fill: false,
                     lineTension: 0,
                     backgroundColor: "rgba(255,255,0,1.0)",
-                    pointRadius: 10,
-                    pointHoverRadius: 15,
+                    pointRadius: 7,
+                    pointHoverRadius: 5,
                     borderColor: "rgba(255,255,255,1.0)",
-                    borderWidth: 3,
                     data: yValues
                 }]
             },

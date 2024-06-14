@@ -200,24 +200,29 @@
         <p>
           <canvas id="myChart2" style="padding-top: 40px;"></canvas>
 
-      </div>
+        <div style="padding-top: 40px;">
 
 
-      <script src="js/config.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-      <script src="js/atualiza.js"></script>
-      <script src="js/adicionar.js"></script>
-      <script src="js/excluir.js"></script>
-      <script src="js/vizualizar.js"></script>
-      <script src="js/categorias.js"></script>
-      <script src="js/pagar.js"></script>
-      <script src="js/resumofin.js"></script>
-      <script src="js/page.js"></script>
-      <script src="js/chat.js"></script>
-      <script src="js/versao.js"></script>
-      <script src="js/voz.js"></script>
-      <script src="js/receita.js"></script>
+          <p style="color:white" >VALOR TOTAL : <span id="totalreceita"></span></p>
+
+        </div>
+
+
+        <script src="js/config.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="js/atualiza.js"></script>
+        <script src="js/adicionar.js"></script>
+        <script src="js/excluir.js"></script>
+        <script src="js/vizualizar.js"></script>
+        <script src="js/categorias.js"></script>
+        <script src="js/pagar.js"></script>
+        <script src="js/resumofin.js"></script>
+        <script src="js/page.js"></script>
+        <script src="js/chat.js"></script>
+        <script src="js/versao.js"></script>
+        <script src="js/voz.js"></script>
+        <script src="js/receita.js"></script>
 
 
 </body>

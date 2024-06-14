@@ -8,7 +8,12 @@ fetch('./api/receita.php')
 
         // Ajustar os valores de x e y com base no dia atual da semana
 
-        console.log(data);
+        var totalreceita = 0;
+        data.forEach(element => {
+            totalreceita +=  parseFloat(element['tempo']);
+        });
+        document.getElementById("totalreceita").innerHTML = totalreceita;
+        
         switch (n) {
             case 0:
                 xValues = ["SEG", "TER", "QUA", "QUI", "SEX", "SAB", "DOM"];

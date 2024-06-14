@@ -43,6 +43,12 @@ if (mysqli_num_rows($resultado) > 0) {
             );
         }
     }
+
+    // ordernar o array pela data
+    usort($receitas, function ($a, $b) {
+        return $a['date'] <=> $b['date'];
+    });
+    
     echo json_encode($receitas);
 } else {
     echo json_encode(array('mensagem' => 'Nenhuma receita encontrada'));

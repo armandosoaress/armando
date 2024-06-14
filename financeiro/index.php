@@ -195,16 +195,12 @@
       </div>
 
       <div class="secondRow pagina receita">
-        <h3 style="color: white;">Receita</h3>
+        <h3 style="color: white;">Receita Semanal</h3>
         </h3>
         <p>
           <canvas id="myChart2" style="padding-top: 40px;"></canvas>
-
         <div style="padding-top: 40px;">
-
-
-          <p style="color:white" >VALOR TOTAL : <span id="totalreceita"></span></p>
-
+          <p style="color:white">VALOR TOTAL : <span id="totalreceita"></span></p>
         </div>
 
 

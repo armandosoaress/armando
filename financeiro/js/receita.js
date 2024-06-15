@@ -97,13 +97,13 @@ fetch('./api/receita.php')
 
         function handleClickOnPoint(label, value) {
             const dayOffsets = {
-                "DOM": -6, // Domingo (último)
-                "SEG": -1, // Segunda-feira
-                "TER": 0,  // Terça-feira
-                "QUA": 1,  // Quarta-feira
-                "QUI": 2,  // Quinta-feira
-                "SEX": 3,  // Sexta-feira
-                "SAB": 4   // Sábado (próximo)
+                "SEGUNDA": 0,
+                "TERÇA": 1,
+                "QUARTA": 2,
+                "QUINTA": 3,
+                "SEXTA": 4,
+                "SÁBADO": 5,
+                "DOMINGO": 6
             };
             if (!(label in dayOffsets)) return;
             var d = new Date();
@@ -112,8 +112,6 @@ fetch('./api/receita.php')
             var y = new Date(d.setDate(x));
             y.setDate(y.getDate() + dayOffsets[label]);
             var z = y.toISOString().split('T')[0];
-
-
             Swal.fire({
                 title: "Informe o tempo e a data",
                 html: `

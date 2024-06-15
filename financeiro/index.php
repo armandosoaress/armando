@@ -2,6 +2,10 @@
 <html lang="pt-br">
 
 <head>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Arbutus+Slab'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css'>
+  <link rel="stylesheet" href="kanban/style.css">
   <meta charset="UTF-8">
   <title>Gestão Financeira</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +33,7 @@
         <li class="menu_init" onclick="showPage('init')"><a href="javascript:void(0)" style="color: black;">Resumo</a></li>
         <li class="menu_organizador" onclick="showPage('organizador')"><a href="javascript:void(0)">Finanças</a></li>
         <li class="menu_receita" onclick="showPage('receita')"><a href="javascript:void(0)">Receita </a></li>
+        <li class="menu_projetos" onclick="showPage('projetos')"><a href="javascript:void(0)">Projetos</a></li>
         <li class="menu_investimentos" onclick="showPage('investimentos')"><a href="javascript:void(0)">Investimentos</a></li>
         <li class="menu_dividas" onclick="showPage('dividas')"><a href="javascript:void(0)">Dividas</a></li>
         <li class="menu_empreendidos" onclick="showPage('empreendidos')"><a href="javascript:void(0)">Empreendidos</a>
@@ -192,6 +197,102 @@
           </thead>
           <tbody id="empreendidostablebody"></tbody>
         </table>
+      </div>
+
+      <div class="secondRow pagina projetos">
+        <h3 style="color: white;">Projetos</h3>
+
+        <p>
+        <div id="p1" class="mdl-progress mdl-js-progress"></div>
+        <script>
+          document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
+            this.MaterialProgress.setProgress(44);
+          });
+        </script>
+        <!-- <div class="kanban__title">
+          <h1><i class="material-icons">check</i> To do list</h1>
+        </div> -->
+        <div class="dd">
+
+          <ol class="kanban To-do">
+            <div class="kanban__title">
+              <h2><i class="material-icons">report_problem</i> Idéia</h2>
+            </div>
+            <li class="dd-item" data-id="1">
+              <h3 class="title dd-handle">Do the dishes<i class=" material-icons ">filter_none</i></h3>
+              <div class="text" contenteditable="true">wwPaul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer
+              </div> <i class="material-icons" id="label blue">label</i>
+              <div class="actions">
+                <i class="material-icons" id="color">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i>
+              </div>
+            </li>
+            <li class="dd-item" data-id="4">
+              <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i>log-in bug</h3>
+              <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer bad design,</div>
+              <div class="actions">
+                <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i>
+              </div>
+            </li>
+          </ol>
+          <ol class="kanban progress">
+            <h2><i class="material-icons">build</i>Andamento </h2>
+            <li class="dd-item" data-id="5">
+              <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i> title of job</h3>
+              <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer bad design,</div>
+              <div class="actions">
+                <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i>
+              </div>
+
+            </li>
+          </ol>
+          <ol class="kanban  Done">
+            <h2><i class="material-icons">check_circle</i> Concluido </h2>
+            <li class="dd-item" data-id="5">
+              <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i> title of job</h3>
+              <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer bad design,</div>
+              <div class="actions">
+                <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i>
+              </div>
+
+            </li>
+            </li>
+            <li class="dd-item" data-id="2">
+              <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i> title of job</h3>
+              <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer bad design,</div>
+              <div class="actions">
+                <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i>
+              </div>
+
+            </li>
+            <div class="actions">
+              <button class="addbutt"><i class="material-icons">control_point</i> Add new</button>
+            </div>
+          </ol>
+          <ol class="kanban Gone">
+            <h2><i class="material-icons">delete</i> erro </h2>
+            <li class="dd-item" data-id="5">
+              <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i> title of job</h3>
+              <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer bad design,</div>
+              <div class="actions">
+                <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i>
+              </div>
+
+            </li>
+            <div class="actions">
+              <button class="addbutt"><i class="material-icons">control_point</i> Add new</button>
+            </div>
+          </ol>
+
+        </div>
+        <menu class="kanban"><button><i class="material-icons">settings</i></button> <button><i class="material-icons">chevron_left</i></button>
+          <button class="viewkanban"><i class="material-icons ">view_column</i></button>
+          <button class="viewlist"><i class="material-icons">view_list</i></button>
+          <button><i class="material-icons">playlist_add</i> Add new Column</button>
+        </menu>
+        <!-- partial -->
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js'></script>
+        <script src="kanban/script.js"></script>
       </div>
 
       <div class="secondRow pagina receita">

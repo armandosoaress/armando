@@ -6,6 +6,7 @@ function changeMenuColor(page) {
         '.menu_dividas',
         '.menu_empreendidos',
         '.menu_receita',
+        '.menu_projetos',
     ];
     menus.forEach(menu => {
         document.querySelector(menu).style.backgroundColor = 'transparent';

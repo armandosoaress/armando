@@ -199,7 +199,7 @@
         </h3>
         <p>
           <canvas id="myChart2" style="padding-top: 40px;"></canvas>
-        <div style="padding-top: 40px;">
+        <div style="padding-top: 5px;">
           <p style="color:white">VALOR TOTAL : <span id="totalreceita"></span></p>
         </div>
 

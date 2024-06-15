@@ -284,11 +284,6 @@
           </ol>
 
         </div>
-        <menu class="kanban"><button><i class="material-icons">settings</i></button> <button><i class="material-icons">chevron_left</i></button>
-          <button class="viewkanban"><i class="material-icons ">view_column</i></button>
-          <button class="viewlist"><i class="material-icons">view_list</i></button>
-          <button><i class="material-icons">playlist_add</i> Add new Column</button>
-        </menu>
         <!-- partial -->
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js'></script>
@@ -303,23 +298,28 @@
         <div style="padding-top: 5px;">
           <p style="color:white">VALOR TOTAL : <span id="totalreceita"></span></p>
         </div>
+      </div>
+
+      <menu class="kanban">
+        <button><i class="material-icons">settings</i></button>
+      </menu>
 
 
-        <script src="js/config.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="js/atualiza.js"></script>
-        <script src="js/adicionar.js"></script>
-        <script src="js/excluir.js"></script>
-        <script src="js/vizualizar.js"></script>
-        <script src="js/categorias.js"></script>
-        <script src="js/pagar.js"></script>
-        <script src="js/resumofin.js"></script>
-        <script src="js/page.js"></script>
-        <script src="js/chat.js"></script>
-        <script src="js/versao.js"></script>
-        <script src="js/voz.js"></script>
-        <script src="js/receita.js"></script>
+      <script src="js/config.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="js/atualiza.js"></script>
+      <script src="js/adicionar.js"></script>
+      <script src="js/excluir.js"></script>
+      <script src="js/vizualizar.js"></script>
+      <script src="js/categorias.js"></script>
+      <script src="js/pagar.js"></script>
+      <script src="js/resumofin.js"></script>
+      <script src="js/page.js"></script>
+      <script src="js/chat.js"></script>
+      <script src="js/versao.js"></script>
+      <script src="js/voz.js"></script>
+      <script src="js/receita.js"></script>
 
 
 </body>

@@ -511,13 +511,25 @@ function montarKanban(data) {
          <img width="30"  src="https://img.icons8.com/ios/50/plus-math.png" alt="plus-math"/>
         </span>
         </h2>`;
+        var descricaoraia = element.raia.descricao;
+        // tira os espaços em branco
+        descricaoraia = descricaoraia.replace(/\s/g, '');
         if (Array.isArray(element.tarefas)) {
             element.tarefas.forEach(tarefa => {
-                htmlRaia += `
-                <li class="dd-item" data-id="${tarefa.id}" 
-                style="background-color: ${tarefa.status == 1 ? '#f1f1f1' : tarefa.status == 2 ? '#1c391d61' : '#ff0000'}">
-                            <div class="funcoes"> 
-                            `;
+
+                if (descricaoraia == 'Concluido') {
+                    htmlRaia += `
+                    <li class="dd-item" data-id="${tarefa.id}" 
+                    style="background-color:#00800085">
+                                <div class="funcoes"> 
+                                `;
+                } else {
+                    htmlRaia += `
+                    <li class="dd-item" data-id="${tarefa.id}" 
+                    style="background-color: ${tarefa.status == 1 ? '#f1f1f1' : tarefa.status == 2 ? '#1c391d61' : '#ff0000'}">
+                                <div class="funcoes"> 
+                                `;
+                }
                 if (tarefa.file != 0) {
                     htmlRaia += `<span><a href="${tarefa.file}" target="_blank"><img width="20"  src="https://img.icons8.com/ios/50/download.png" alt="attachment"/></a></span>`;
                 }
@@ -526,7 +538,7 @@ function montarKanban(data) {
                                 <span onclick="editarTarefa(${tarefa.id})"><img width="20"  src="https://img.icons8.com/ios/50/edit.png" alt="edit"/></span>
                             </div>
                             <h3 class="title dd-handle" style="cursor: move;font-size: 1.5em; color: ${tarefa.status == 1 ? '#000' : tarefa.status == 2 ? '#fff' : '#fff'}">
-                                ${tarefa.titulo}
+                                ${descricaoraia}
                             </h3>
                             <div class="text" contenteditable="true" onblur="atualizarTarefa(${tarefa.id}, this.innerText)"   style="color: ${tarefa.status == 1 ? '#000' : tarefa.status == 2 ? '#fff' : '#fff'}">
                                 ${tarefa.descricao}

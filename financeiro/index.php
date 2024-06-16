@@ -39,7 +39,7 @@
           </a>
         </li>
 
-        <li class="menu_organiza">
+        <li class="menu_organiza" style="padding-bottom: 0px;">
           <a href="javascript:void(0)" onclick="toggleSubMenu('financasSubMenu')">
             <i class="fas fa-wallet"></i> Finanças
           </a>
@@ -59,7 +59,7 @@
                 <i class="fas fa-credit-card"></i> Dívidas
               </a>
             </li>
-            <li class="menu_empreendidos" onclick="showPage('empreendidos')">
+            <li class="menu_empreendidos" onclick="showPage('empreendidos')" style="padding-bottom: 0px;">
               <a href="javascript:void(0)">
                 <i class="fas fa-briefcase"></i> Empreendidos
               </a>

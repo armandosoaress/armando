@@ -33,8 +33,11 @@ async function fetchFinancas() {
           <td>${datacreate}</td>
           <td>${item.valor}</td>
           <td>
-            <button class="btn btn-warning" onclick="editarfinanca(${item.id}, '${tabela}')">Editar</button>
-            <button class="btn btn-danger" onclick="excluirfinanca(${item.id})">Excluir</button>
+          <!-- Ícone de edição -->
+          <i class="bi bi-pencil" style="cursor: pointer; text-align: left; padding-right: 10px;" onclick="editarfinanca(${item.id}, '${tabela}')"></i>
+          <!-- Ícone de exclusão -->
+          <i class="bi bi-trash" style="cursor: pointer; text-align: left;" onclick="excluirfinanca(${item.id}, '${tabela}')"></i>
+          
           </td>
         `;
             tableBody.appendChild(tr);
@@ -131,6 +134,36 @@ function editar(dados) {
 }
 
 
-function excluirfinanca(id) {
-    console.log('Excluir financa', id);
+function excluirfinanca(id, tabela) {
+    Swal.fire({
+        title: 'Tem certeza?',
+        text: 'Você não poderá reverter isso!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, excluir!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch('api/financas.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ funcao: 'excluir', id: id, tabela: tabela })
+            })
+                .then(response => response.json())
+                .then(result => {
+                    if (result.status === 'ok') {
+                        fetchFinancas();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Finança excluída com sucesso',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                });
+        }
+    });
 }

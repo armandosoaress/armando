@@ -33,6 +33,19 @@ if (isset($dados['funcao']) && $dados['funcao'] == 'editar') {
     return;
 }
 
+if (isset($dados['funcao']) && $dados['funcao'] == 'excluir') {
+
+    if (isset($dados['tabela'])) {
+        $sql = "DELETE FROM " . $dados['tabela'] . " WHERE id = " . $dados['id'];
+        $resultado = mysqli_query($conexao, $sql);
+        echo json_encode([
+            'status' => 'ok'
+        ]);
+    }
+
+    return;
+}
+
 $sql = "SELECT * FROM investidos";
 $sql2 = "SELECT * FROM dividas";
 $sql3 = "SELECT * FROM empreendidos";

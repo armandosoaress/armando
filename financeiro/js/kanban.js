@@ -530,7 +530,6 @@ function montarKanban(data) {
 
 
 
-
         htmlRaia += `</ol>`;
     });
 

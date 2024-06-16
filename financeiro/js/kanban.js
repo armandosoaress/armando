@@ -501,7 +501,8 @@ function montarKanban(data) {
                 htmlRaia += `
                         <li class="dd-item" data-id="${tarefa.id}">
                             <div class="funcoes"> 
-                                <span onclick="excluirTarefa(${tarefa.id})"><img width="30"  src="https://img.icons8.com/ios/50/no-entry.png" alt="no-entry"/></span>
+                                <span onclick="excluirTarefa(${tarefa.id})"><img width="20"  src="https://img.icons8.com/ios/50/no-entry.png" alt="no-entry"/></span>
+                                <span onclick="editarTarefa(${tarefa.id})"><img width="20"  src="https://img.icons8.com/ios/50/edit.png" alt="edit"/></span>
                             </div>
                             <h3 class="title dd-handle" style="cursor: move;font-size: 1.5em;">
                                 ${tarefa.titulo}
@@ -526,7 +527,64 @@ function montarKanban(data) {
 }
 
 
-function atualizarTarefa(id, descricao) {
+function editarTarefa(id) {
+
+    fetch('api/edittaskkanban.php?id=' + id)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            Swal.fire({
+                title: "Editar Tarefa",
+                text: "Preencha os campos abaixo",
+                showCancelButton: true,
+                confirmButtonText: "Salvar",
+                cancelButtonText: "Cancelar",
+                html: `
+                    <input id="swal-input1" class="swal2-input" value="${data.titulo}">
+                    <input id="swal-input2" class="swal2-input" value="${data.descricao}">
+                `,
+                focusConfirm: false,
+                preConfirm: () => {
+                    return [
+                        document.getElementById("swal-input1").value,
+                        document.getElementById("swal-input2").value
+                    ];
+                }
+            }).then((result) => {
+                if (result.isConfirmed && result.value) {
+                    const formValues = result.value;
+                    fetch('api/editakanban.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            "id": id,
+                            "titulo": formValues[0],
+                            "descricao": formValues[1]
+                        }),
+                    }).then(response => response.json())
+                        .then(data => {
+                            if (data.status == 'ok') {
+                                fetch('api/kanban.php')
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        montarKanban(data);
+                                    })
+                                    .catch((error) => {
+                                        console.error('Error:', error);
+                                    });
+                            }
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                        });
+                }
+            });
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 
 }
 

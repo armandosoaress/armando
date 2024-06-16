@@ -495,7 +495,21 @@ function montarKanban(data) {
     let htmlRaia = '';
     document.getElementById("raiamontagem").innerHTML = '';
     data.forEach(element => {
-        htmlRaia += `<ol  data-id="${element.raia.id}" class="kanban progress"><h2><i style="padding-right: 7px;font-size:15px" class="material-icons">build</i> ${element.raia.descricao}</h2>`;
+        htmlRaia += `<ol 
+        data-id="${element.raia.id}" 
+        class="kanban progress">
+        <h2 style="
+        justify-content: space-between;
+        align-items: flex-end;
+        display: flex;
+        cursor: pointer;
+        ">
+        <i style="padding-right: 7px;font-size:15px" class="material-icons">build</i> 
+        ${element.raia.descricao}
+        <span onclick="adicionarTarefa(${element.raia.id})">
+         <img width="30"  src="https://img.icons8.com/ios/50/plus-math.png" alt="plus-math"/>
+        </span>
+        </h2>`;
         if (Array.isArray(element.tarefas)) {
             element.tarefas.forEach(tarefa => {
                 htmlRaia += `
@@ -514,9 +528,7 @@ function montarKanban(data) {
             });
         }
 
-        htmlRaia += `<li class="dd-item" data-id="0" onclick="adicionarTarefa(${element.raia.id})" style="cursor: pointer">
-                        <h3 class="title dd-handle" style="padding-left: 43%;font-size: 1.5em;pointer-events: none;padding-top:40px;"><span onclick="adicionarTarefa(${element.raia.id})"><img width="30"  src="https://img.icons8.com/ios/50/plus-math.png" alt="plus-math"/></span></h3>
-                    </li>`;
+
 
 
         htmlRaia += `</ol>`;

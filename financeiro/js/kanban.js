@@ -514,7 +514,8 @@ function montarKanban(data) {
         if (Array.isArray(element.tarefas)) {
             element.tarefas.forEach(tarefa => {
                 htmlRaia += `
-                        <li class="dd-item" data-id="${tarefa.id}">
+                <li class="dd-item" data-id="${tarefa.id}" 
+                style="background-color: ${tarefa.status == 1 ? '#f1f1f1' : tarefa.status == 2 ? '#1c391d61' : '#ff0000'}">
                             <div class="funcoes"> 
                             `;
                 if (tarefa.file != 0) {
@@ -524,10 +525,10 @@ function montarKanban(data) {
                                 <span onclick="excluirTarefa(${tarefa.id})"><img width="20"  src="https://img.icons8.com/ios/50/no-entry.png" alt="no-entry"/></span>
                                 <span onclick="editarTarefa(${tarefa.id})"><img width="20"  src="https://img.icons8.com/ios/50/edit.png" alt="edit"/></span>
                             </div>
-                            <h3 class="title dd-handle" style="cursor: move;font-size: 1.5em;">
-                                ${tarefa.titulo}
+                            <h3 class="title dd-handle" style="cursor: move;font-size: 1.5em; color: ${tarefa.status == 1 ? '#000' : tarefa.status == 2 ? '#fff' : '#fff'}">
+                                ${tarefa.status}
                             </h3>
-                            <div class="text" contenteditable="true" onblur="atualizarTarefa(${tarefa.id}, this.innerText)">
+                            <div class="text" contenteditable="true" onblur="atualizarTarefa(${tarefa.id}, this.innerText)"  style="color: ${tarefa.status == 1 ? '#000' : tarefa.status == 2 ? '#fff' : '#fff'}">
                                 ${tarefa.descricao}
                             </div>
                         </li>`;
@@ -555,14 +556,23 @@ function editarTarefa(id) {
                 confirmButtonText: "Salvar",
                 cancelButtonText: "Cancelar",
                 html: `
+                    <label for="swal-input1">Título</label>
                     <input id="swal-input1" class="swal2-input" value="${data.titulo}">
+                    <label for="swal-input2">Descrição</label>
                     <input id="swal-input2" class="swal2-input" value="${data.descricao}">
+                    <label for="swal-input3">Status</label>
+                    <select id="swal-input3" class="swal2-input">
+                        <option ${data.status == 1 ? 'selected' : ''} value="1">Normal</option>
+                        <option  ${data.status == 2 ? 'selected' : ''} value="2">Baixa</option>
+                        <option  ${data.status == 3 ? 'selected' : ''} value="3">Crítico</option>
+                    </select>
                 `,
                 focusConfirm: false,
                 preConfirm: () => {
                     return [
                         document.getElementById("swal-input1").value,
-                        document.getElementById("swal-input2").value
+                        document.getElementById("swal-input2").value,
+                        document.getElementById("swal-input3").value
                     ];
                 }
             }).then((result) => {
@@ -576,7 +586,8 @@ function editarTarefa(id) {
                         body: JSON.stringify({
                             "id": id,
                             "titulo": formValues[0],
-                            "descricao": formValues[1]
+                            "descricao": formValues[1],
+                            "status": formValues[2]
                         }),
                     }).then(response => response.json())
                         .then(data => {

@@ -15,8 +15,9 @@ if (!$conexao) {
 $id = mysqli_real_escape_string($conexao, $dados['id']);
 $descricao = mysqli_real_escape_string($conexao, $dados['descricao']);
 $titulo = mysqli_real_escape_string($conexao, $dados['titulo']);
+$status = mysqli_real_escape_string($conexao, $dados['status']);
 
-$sql = "UPDATE raia SET descricao = '$descricao', titulo = '$titulo' WHERE id = '$id'";
+$sql = "UPDATE raia SET descricao = '$descricao', titulo = '$titulo',status = '$status' WHERE id = $id";
 if (mysqli_query($conexao, $sql)) {
     echo json_encode(array(
         'mensagem' => 'Movimentação inserida com sucesso',

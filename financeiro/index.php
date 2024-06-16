@@ -1,3 +1,29 @@
+<?php
+
+
+include_once 'api/conexao.php';
+session_save_path('login/sec');
+
+session_start();
+
+if (isset($_SESSION['user'])) {
+  $sql = "SELECT * FROM users WHERE user = ? AND senha = ?";
+  $stmt = mysqli_prepare($conexao, $sql);
+  mysqli_stmt_bind_param($stmt, "ss", $_SESSION['user'], $_SESSION['senha']);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+
+  if (!mysqli_num_rows($result) > 0) {
+    session_destroy();
+    header('Location: login/');
+    exit;
+  }
+} else {
+  header('Location: login/');
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -74,6 +100,13 @@
         <li class="menu_projetos" onclick="showPage('projetos')">
           <a href="javascript:void(0)">
             <i class="fas fa-tasks"></i> Projetos
+          </a>
+        </li>
+
+        <!-- SAIR -->
+        <li>
+          <a href="login/logout.php">
+            <i class="fas fa-sign-out-alt"></i> Sair
           </a>
         </li>
       </ul>

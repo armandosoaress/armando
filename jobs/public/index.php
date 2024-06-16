@@ -2,9 +2,18 @@
 require_once '../../financeiro/api/conexao.php';
 
 require __DIR__ . '/../vendor/autoload.php';
+//horario de br
+date_default_timezone_set('America/Sao_Paulo');
 
 use Minishlink\WebPush\WebPush;
 use Minishlink\WebPush\Subscription;
+
+// salva o jog em log.json
+$fp = fopen('log.json', 'a');
+$data = date('Y-m-d H:i:s');
+fwrite($fp, json_encode($data) . "\n");
+fclose($fp);
+
 
 
 $hoje = date('Y-m-d');

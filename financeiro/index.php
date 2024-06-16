@@ -255,9 +255,9 @@
         </div>
       </div>
 
-      <menu class="kanban">
+      <!-- <menu class="kanban">
         <button><i class="material-icons">settings</i></button>
-      </menu>
+      </menu> -->
 
       <script src="js/config.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>

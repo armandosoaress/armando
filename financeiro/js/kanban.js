@@ -515,6 +515,11 @@ function montarKanban(data) {
                 htmlRaia += `
                         <li class="dd-item" data-id="${tarefa.id}">
                             <div class="funcoes"> 
+                            `;
+                if (tarefa.file != 0) {
+                    htmlRaia += `<span><a href="${tarefa.file}" target="_blank"><img width="20"  src="https://img.icons8.com/ios/50/download.png" alt="attachment"/></a></span>`;
+                }
+                htmlRaia += `
                                 <span onclick="excluirTarefa(${tarefa.id})"><img width="20"  src="https://img.icons8.com/ios/50/no-entry.png" alt="no-entry"/></span>
                                 <span onclick="editarTarefa(${tarefa.id})"><img width="20"  src="https://img.icons8.com/ios/50/edit.png" alt="edit"/></span>
                             </div>

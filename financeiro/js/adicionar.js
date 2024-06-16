@@ -74,7 +74,7 @@ async function inserir(dados) {
         })
         movimentacoes();
     } else {
-        Swal.fire({
+        cc.fire({
             icon: 'error',
             title: 'Erro ao inserir o registro',
             showConfirmButton: false,

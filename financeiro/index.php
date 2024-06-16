@@ -187,32 +187,28 @@
         </div>
       </div>
       <div class="secondRow pagina investimentos">
-        <h3>Investimentos</h3>
+        <h3 style="color: white;">Investimentos</h3>
         <p>
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Descrição</th>
-              <th scope="col">Valor</th>
               <th scope="col">Data</th>
-              <th scope="col">Categoria</th>
+              <th scope="col">Valor</th>
               <th scope="col">Ações</th>
             </tr>
           </thead>
+          <tbody id="investimentostablebody"></tbody>
         </table>
-        <tbody id="investimentostablebody"></tbody>
       </div>
 
       <div class="secondRow pagina dividas">
-        <h3>Dividas</h3>
+        <h3 style="color: white;">Dividas</h3>
         <p>
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Descrição</th>
-              <th scope="col">Valor</th>
               <th scope="col">Data</th>
-              <th scope="col">Categoria</th>
+              <th scope="col">Valor</th>
               <th scope="col">Ações</th>
             </tr>
           </thead>
@@ -221,21 +217,20 @@
       </div>
 
       <div class="secondRow pagina empreendidos">
-        <h3>Empreendidos</h3>
+        <h3 style="color: white;">Empreendidos</h3>
         <p>
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Descrição</th>
-              <th scope="col">Valor</th>
               <th scope="col">Data</th>
-              <th scope="col">Categoria</th>
+              <th scope="col">Valor</th>
               <th scope="col">Ações</th>
             </tr>
           </thead>
           <tbody id="empreendidostablebody"></tbody>
         </table>
       </div>
+
 
       <div class="secondRow pagina projetos">
         <h3 style="color: white;">Projetos</h3>
@@ -247,17 +242,7 @@
             this.MaterialProgress.setProgress(44);
           });
         </script>
-        <!-- <div class="kanban__title">
-          <h1><i class="material-icons">check</i> To do list</h1>
-        </div> -->
-        <div class="dd" id="raiamontagem">
-
-
-
-
-        </div>
-        <!-- partial -->
-
+        <div class="dd" id="raiamontagem"></div>
       </div>
 
       <div class="secondRow pagina receita">
@@ -273,7 +258,6 @@
       <menu class="kanban">
         <button><i class="material-icons">settings</i></button>
       </menu>
-
 
       <script src="js/config.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -293,6 +277,7 @@
       <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
       <script src='https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js'></script>
       <script src="js/kanban.js"></script>
+      <script src="js/financas.js"></script>
 
 
 </body>

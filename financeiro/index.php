@@ -39,7 +39,7 @@
           </a>
         </li>
 
-        <li class="menu_organiza" style="padding-bottom: 0px;">
+        <li class="menu_organiza">
           <a href="javascript:void(0)" onclick="toggleSubMenu('financasSubMenu')">
             <i class="fas fa-wallet"></i> Finanças
           </a>
@@ -83,7 +83,7 @@
     <div class="boxContent">
       <div class="firstRow pagina init" style="flex-wrap: wrap;margin-top: 0px;padding-top: 20px;">
 
-        <div class="col-md-5 ml-auto" style="margin-bottom: 20px;margin-right: 16px;display: flex; justify-content: space-between;">
+        <div class="col-md-8 ml-auto" style="margin-bottom: 20px;margin-right: 16px;display: flex; justify-content: space-between;">
           <select name="mescna" id="mescna" class="form-control" onchange="resumomes()">
             <option value="1">Janeiro</option>
             <option value="2">Fevereiro</option>
@@ -113,7 +113,7 @@
             <option value="2030">2030</option>
           </select>
 
-          <button class="btn btn-primary" onclick="lerValoresComVoz()" style="margin-left: 16px;">Resumo por voz</button>
+          <button class="btn btn-primary" onclick="lerValoresComVoz()" style="margin-left: 16px;margin-right: 43px;width: 41%;">Resumo</button>
 
         </div>
 
@@ -132,7 +132,7 @@
           </div>
           <div class="cardOne" onclick="atualizarresumo('investidos')">
             <div class="description">
-              <p>Investidos</p>
+              <p>Investimentos</p>
               <h3 id="investidos"></h3>
             </div>
           </div>
@@ -144,7 +144,7 @@
       </div>
       <div class="thirdRow pagina organizador">
         <div class="init" id="init">
-          <div class="row">
+          <div class="row" style="margin-right: 35px;">
             <div class="col-md-4">
               <select name="mes" id="vp" class="form-control" onchange="movimentacoes()">
                 <option value="1">Vencimento</option>

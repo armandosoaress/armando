@@ -5,7 +5,7 @@ function listacategorias() {
       const promises = data.map(categoria => {
         const divcategoria = `
           <div class="col-md-6">
-              <h1>${categoria.descricao}</h1>
+              <h1 style="position:static" >${categoria.descricao}</h1>
               <table class="table table-responsive">
                 <thead>
                   <tr>

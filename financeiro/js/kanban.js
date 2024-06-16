@@ -526,9 +526,9 @@ function montarKanban(data) {
                                 <span onclick="editarTarefa(${tarefa.id})"><img width="20"  src="https://img.icons8.com/ios/50/edit.png" alt="edit"/></span>
                             </div>
                             <h3 class="title dd-handle" style="cursor: move;font-size: 1.5em; color: ${tarefa.status == 1 ? '#000' : tarefa.status == 2 ? '#fff' : '#fff'}">
-                                ${tarefa.status}
+                                ${tarefa.titulo}
                             </h3>
-                            <div class="text" contenteditable="true" onblur="atualizarTarefa(${tarefa.id}, this.innerText)"  style="color: ${tarefa.status == 1 ? '#000' : tarefa.status == 2 ? '#fff' : '#fff'}">
+                            <div class="text" contenteditable="true" onblur="atualizarTarefa(${tarefa.id}, this.innerText)"   style="color: ${tarefa.status == 1 ? '#000' : tarefa.status == 2 ? '#fff' : '#fff'}">
                                 ${tarefa.descricao}
                             </div>
                         </li>`;

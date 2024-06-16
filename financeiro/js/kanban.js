@@ -496,6 +496,7 @@ function montarKanban(data) {
     document.getElementById("raiamontagem").innerHTML = '';
     data.forEach(element => {
         htmlRaia += `<ol 
+        style="border-top: 5px solid ${element.raia.cor};"
         data-id="${element.raia.id}" 
         class="kanban progress">
         <h2 style="

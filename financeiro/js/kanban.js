@@ -495,7 +495,7 @@ function montarKanban(data) {
     let htmlRaia = '';
     document.getElementById("raiamontagem").innerHTML = '';
     data.forEach(element => {
-        htmlRaia += `<ol class="kanban progress"><h2><i style="padding-right: 7px;font-size:15px" class="material-icons">build</i> ${element.raia.descricao}</h2>`;
+        htmlRaia += `<ol  data-id="${element.raia.id}" class="kanban progress"><h2><i style="padding-right: 7px;font-size:15px" class="material-icons">build</i> ${element.raia.descricao}</h2>`;
         if (Array.isArray(element.tarefas)) {
             element.tarefas.forEach(tarefa => {
                 htmlRaia += `
@@ -534,7 +534,7 @@ function editarTarefa(id) {
         .then(data => {
             console.log(data);
             Swal.fire({
-                title: "Editar Tarefa",
+                title: "Editar ",
                 text: "Preencha os campos abaixo",
                 showCancelButton: true,
                 confirmButtonText: "Salvar",
@@ -627,7 +627,7 @@ function excluirTarefa(id) {
 async function adicionarTarefa(id) {
     try {
         const result = await Swal.fire({
-            title: "Adicionar Tarefa",
+            title: "Adicionar",
             text: "Preencha os campos abaixo",
             showCancelButton: true,
             confirmButtonText: "Adicionar",
@@ -675,3 +675,36 @@ async function adicionarTarefa(id) {
         console.error('Error:', error);
     }
 }
+
+
+$('.dd').on('change', function () {
+    let lista = document.querySelectorAll('ol[data-id]');
+    let data = [];
+
+    lista.forEach(element => {
+        let raia = {
+            id: element.getAttribute('data-id'),
+            tarefas: []
+        };
+        element.querySelectorAll('li[data-id]').forEach(tarefa => {
+            raia.tarefas.push({
+                id: tarefa.getAttribute('data-id')
+            });
+        });
+        data.push(raia);
+    });
+    console.log(data);
+    fetch('api/salvamovkanban.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    }).then(response => response.json())
+        .then(data => {
+            // console.log(data);
+        })
+        .catch((error) => {
+            // console.error('Error:', error);
+        });
+});

@@ -5,3 +5,4 @@ jobs/vendor
 subscriptions.json
 /jobs/backups
 jobs/public/bakcups
+jobs/public/log.json

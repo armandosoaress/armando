@@ -9,6 +9,10 @@ function movimentacoes() {
             document.querySelectorAll('.resultadosmovimentacoes').forEach(element => {
                 element.innerHTML = '';
             });
+            document.querySelectorAll('.total').forEach(element => {
+                element.innerHTML = '0,00';
+            });
+
             if (data.length > 0) {
 
                 var totalvalor = 0;

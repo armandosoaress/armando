@@ -22,7 +22,7 @@ function listacategorias() {
                 <tfoot>
                   <tr>
                     <th>Total</th>
-                    <th id="total${categoria.id}"></th>
+                    <th class="totalis" id="total${categoria.id}"></th>
                     <th></th>
                     <th></th>
                     <th></th>

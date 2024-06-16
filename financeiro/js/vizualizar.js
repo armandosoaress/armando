@@ -9,7 +9,7 @@ function movimentacoes() {
             document.querySelectorAll('.resultadosmovimentacoes').forEach(element => {
                 element.innerHTML = '';
             });
-            document.querySelectorAll('.total').forEach(element => {
+            document.querySelectorAll('.totalis').forEach(element => {
                 element.innerHTML = '0,00';
             });
 

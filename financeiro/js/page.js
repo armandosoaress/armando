@@ -20,6 +20,8 @@ function changeMenuColor(page) {
     as.forEach(a => {
         a.style.color = 'black';
     });
+
+
 }
 function showPage(page) {
     localStorage.setItem('pagefinanceiro', page);
@@ -38,4 +40,13 @@ document.querySelector('.init').style.display = 'flex';
 const page = localStorage.getItem('pagefinanceiro');
 if (page) {
     showPage(page);
+}
+
+function toggleSubMenu(id) {
+    var submenu = document.getElementById(id);
+    if (submenu.style.display == 'none') {
+        submenu.style.display = 'block';
+    } else {
+        submenu.style.display = 'none';
+    }
 }

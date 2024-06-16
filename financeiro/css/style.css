@@ -1,5 +1,56 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+
+<style>.sideBarre__menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sideBarre__menu ul li {
+  padding: 12px 16px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+.sideBarre__menu ul li a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.sideBarre__menu ul li a i {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+.sideBarre__menu .submenu {
+  padding-left: 20px;
+}
+
+.sideBarre__menu .submenu li {
+  padding: 8px 16px;
+  /* Estilo de padding para os itens do submenu */
+}
+
+.sideBarre__menu .submenu li a i {
+  font-size: 1em;
+}
+
+/* Estilo para indicar que um menu tem submenu */
+.sideBarre__menu .menu_organiza>a::after {
+  content: "\f0d7";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 16px;
+}
+
+
 /* Declaration de variables en CSS */
 :root {
   --color-white: white;

@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
   <script src="js/chart/index.js"></script>
   <link rel="icon" href="https://www.armandosoares.com.br/jobs/public/a.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 
 <body>
@@ -27,18 +29,52 @@
       <img id="logoimg" src="img/67761071.jpg " alt="Logo">
     </div>
     <br>
-    <center>
-      <span style="color: white;" id="version">Carregando...</span>
-    </center>
+    <center><span style="color: white;" id="version">Carregando...</span></center>
+
     <div class="sideBarre__menu">
       <ul style="padding-top: 20px;">
-        <li class="menu_init" onclick="showPage('init')"><a href="javascript:void(0)" style="color: black;">Resumo</a></li>
-        <li class="menu_organizador" onclick="showPage('organizador')"><a href="javascript:void(0)">Finanças</a></li>
-        <li class="menu_receita" onclick="showPage('receita')"><a href="javascript:void(0)">Receita </a></li>
-        <li class="menu_projetos" onclick="showPage('projetos')"><a href="javascript:void(0)">Projetos</a></li>
-        <li class="menu_investimentos" onclick="showPage('investimentos')"><a href="javascript:void(0)">Investimentos</a></li>
-        <li class="menu_dividas" onclick="showPage('dividas')"><a href="javascript:void(0)">Dividas</a></li>
-        <li class="menu_empreendidos" onclick="showPage('empreendidos')"><a href="javascript:void(0)">Empreendidos</a>
+        <li class="menu_init" onclick="showPage('init')">
+          <a href="javascript:void(0)" style="color: black;">
+            <i class="fas fa-chart-line"></i> Resumo
+          </a>
+        </li>
+
+        <li class="menu_organiza">
+          <a href="javascript:void(0)" onclick="toggleSubMenu('financasSubMenu')">
+            <i class="fas fa-wallet"></i> Finanças
+          </a>
+          <ul id="financasSubMenu" class="submenu" style="display: none;">
+            <li class="menu_organizador" onclick="showPage('organizador')" style="margin-top: 10px;">
+              <a href="javascript:void(0)">
+                <i class="fas fa-coins"></i> Resumo
+              </a>
+            </li>
+            <li class="menu_investimentos" onclick="showPage('investimentos')">
+              <a href="javascript:void(0)">
+                <i class="fas fa-piggy-bank"></i> Investimentos
+              </a>
+            </li>
+            <li class="menu_dividas" onclick="showPage('dividas')">
+              <a href="javascript:void(0)">
+                <i class="fas fa-credit-card"></i> Dívidas
+              </a>
+            </li>
+            <li class="menu_empreendidos" onclick="showPage('empreendidos')">
+              <a href="javascript:void(0)">
+                <i class="fas fa-briefcase"></i> Empreendidos
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu_receita" onclick="showPage('receita')">
+          <a href="javascript:void(0)">
+            <i class="fas fa-file-invoice-dollar"></i> Receita
+          </a>
+        </li>
+        <li class="menu_projetos" onclick="showPage('projetos')">
+          <a href="javascript:void(0)">
+            <i class="fas fa-tasks"></i> Projetos
+          </a>
         </li>
       </ul>
     </div>

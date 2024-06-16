@@ -45,6 +45,10 @@ function movimentacoes() {
 
                     totalcategoria = movimentacao.categoria;
 
+                    if(movimentacao.status == 0){
+                        movimentacao.data_pagamento = '';
+                    }
+
                     const divmovimentacao = `
                         <tr>
                             <td>

@@ -493,34 +493,127 @@ fetch('api/kanban.php')
 
 function montarKanban(data) {
     let htmlRaia = '';
-
+    document.getElementById("raiamontagem").innerHTML = '';
     data.forEach(element => {
-        // Início da raia
-        htmlRaia += `
-                <ol class="kanban progress">
-                    <h2><i class="material-icons">build</i> ${element.raia.descricao}</h2>
-            `;
-
-        // Verifica se há tarefas e itera sobre elas
+        htmlRaia += `<ol class="kanban progress"><h2><i style="padding-right: 7px;font-size:15px" class="material-icons">build</i> ${element.raia.descricao}</h2>`;
         if (Array.isArray(element.tarefas)) {
             element.tarefas.forEach(tarefa => {
                 htmlRaia += `
                         <li class="dd-item" data-id="${tarefa.id}">
-                            <h3 class="title dd-handle">
+                            <div class="funcoes"> 
+                                <span onclick="excluirTarefa(${tarefa.id})"><img width="30"  src="https://img.icons8.com/ios/50/no-entry.png" alt="no-entry"/></span>
+                            </div>
+                            <h3 class="title dd-handle" style="cursor: move;font-size: 1.5em;">
                                 ${tarefa.titulo}
                             </h3>
-                            <div class="text" contenteditable="true">
+                            <div class="text" contenteditable="true" onblur="atualizarTarefa(${tarefa.id}, this.innerText)">
                                 ${tarefa.descricao}
                             </div>
-                        </li>
-                    `;
+                        </li>`;
             });
         }
 
-        // Fim da raia
+        htmlRaia += `<li class="dd-item" data-id="0" onclick="adicionarTarefa(${element.raia.id})" style="cursor: pointer">
+                        <h3 class="title dd-handle" style="padding-left: 43%;font-size: 1.5em;pointer-events: none;padding-top:40px;"><span onclick="adicionarTarefa(${element.raia.id})"><img width="30"  src="https://img.icons8.com/ios/50/plus-math.png" alt="plus-math"/></span></h3>
+                    </li>`;
+
+
         htmlRaia += `</ol>`;
     });
 
     // Insere todo o HTML gerado dentro do elemento com ID 'raiamontagem'
     document.getElementById("raiamontagem").innerHTML = htmlRaia;
+}
+
+
+function atualizarTarefa(id, descricao) {
+
+}
+
+function excluirTarefa(id) {
+    Swal.fire({
+        title: 'Deseja realmente excluir esta tarefa?',
+        showDenyButton: true,
+        confirmButtonText: `Sim`,
+        denyButtonText: `Não`,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch('api/deletakanban.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    "id": id
+                }),
+            }).then(response => response.json())
+                .then(data => {
+                    if (data.status == 'ok') {
+                        fetch('api/kanban.php')
+                            .then(response => response.json())
+                            .then(data => {
+                                montarKanban(data);
+                            })
+                            .catch((error) => {
+                                console.error('Error:', error);
+                            });
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+    })
+}
+
+async function adicionarTarefa(id) {
+    try {
+        const result = await Swal.fire({
+            title: "Adicionar Tarefa",
+            text: "Preencha os campos abaixo",
+            showCancelButton: true,
+            confirmButtonText: "Adicionar",
+            cancelButtonText: "Cancelar",
+            html: `
+                <input id="swal-input1" class="swal2-input" placeholder="Título">
+                <input id="swal-input2" class="swal2-input" placeholder="Descrição">
+            `,
+            focusConfirm: false,
+            preConfirm: () => {
+                return [
+                    document.getElementById("swal-input1").value,
+                    document.getElementById("swal-input2").value
+                ];
+            }
+        });
+
+        if (result.isConfirmed && result.value) {
+            const formValues = result.value;
+            const response = await fetch('api/criakanban.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    "raia": id,
+                    "titulo": formValues[0],
+                    "descricao": formValues[1]
+                }),
+            });
+
+            const data = await response.json();
+            if (data.status == 'ok') {
+                fetch('api/kanban.php')
+                    .then(response => response.json())
+                    .then(data => {
+                        montarKanban(data);
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+            }
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
